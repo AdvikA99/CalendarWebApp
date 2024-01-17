@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import CalendarView from './components/CalendarView/CalendarView';
-import DetailsView from './components/DetailsView/DetailsView';
+import Calendar from './components/Calendar/Calendar';
+import DateDetails from './components/DateDetails/DateDetails';
 
 function App() {
   return (
     <div className="App">
-      <CalendarView></CalendarView>
-      <DetailsView></DetailsView>
+      <Calendar></Calendar>
+      <DateDetails></DateDetails>
     </div>
   );
 }

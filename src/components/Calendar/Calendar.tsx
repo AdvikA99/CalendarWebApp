@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './CalendarView.css';
-import TimeScaleSelector from './TimeScaleSelector';
-import YearView from './YearView';
-import MonthView from './MonthView';
-import WeekView from './WeekView';
+import './Calendar.css';
+import TimeScaleSelector from './TimeScaleSelector/TimeScaleSelector';
+import YearView from './YearView/YearView';
+import MonthView from './MonthsView/MonthView';
+import WeekView from './WeekView/WeekView';
 
 export enum TimeScale {
   Year,
@@ -11,7 +11,7 @@ export enum TimeScale {
   Week
 }
 
-function CalendarView() {
+function Calendar() {
   const [timeScale, setTimeScale] = useState(TimeScale.Year);
 
   const handleTimeScaleChange = (newTimeScale : TimeScale) => {
@@ -28,4 +28,4 @@ function CalendarView() {
   );
 }
 
-export default CalendarView;
+export default Calendar;

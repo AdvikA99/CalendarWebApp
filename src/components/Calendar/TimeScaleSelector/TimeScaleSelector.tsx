@@ -1,6 +1,6 @@
 import React from 'react';
 import './TimeScaleSelector.css';
-import { TimeScale } from './CalendarView';
+import { TimeScale } from '../Calendar';
 
 function TimeScaleSelector(props : any) {
 

@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './DetailsView.css';
+import './FactDisplay.css';
 
 interface Fact {
   year: string;
   fact: string;
-}
-
-interface FactsDictionary {
-  [key: string]: Fact[];
 }
 
 // Formats current date as ddMM
@@ -22,7 +17,7 @@ function getFormattedDate() {
   return formattedDate;
 }
 
-function DetailsView() {
+function FactDisplay() {
   const [factList, setFactList] = useState<Fact[] | null>(null);
   const [curFactInd, setCurFactInd] = useState(0);
 
@@ -48,7 +43,7 @@ function DetailsView() {
   }, [factList]);
 
   return (
-    <div id="detailsSection">
+    <div>
       {factList && (
           <div>
             <p>year: {factList[curFactInd].year}</p>
@@ -60,4 +55,4 @@ function DetailsView() {
   );
 }
 
-export default DetailsView;
+export default FactDisplay;
