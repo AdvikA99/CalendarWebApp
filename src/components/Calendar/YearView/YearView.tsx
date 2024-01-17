@@ -1,14 +1,15 @@
 import React from 'react';
 import './YearView.css';
+import YearItem from './YearItem/YearItem';
 
 function YearView() {
   const daysButtons = []
   for (let i = 0; i < 366; i++) {
-    daysButtons.push(<button></button>)
+    daysButtons.push(<YearItem dayInYear={i + 1}></YearItem>)
   }
 
   return (
-    <div>
+    <div id="yearItemContainer">
       {daysButtons}
     </div>
   );

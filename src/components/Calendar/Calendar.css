@@ -1,7 +1,10 @@
 #calendarSection {
-  background-color: red;
+  background-color: rgb(10, 10, 10);
 }
 
-#calendarPadding { 
-  padding: 20px;
+#calendarPadding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
