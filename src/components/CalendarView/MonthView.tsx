@@ -3,7 +3,7 @@ import './MonthView.css';
 
 function MonthView() {
   return (
-    <div className="mainContainer">
+    <div>
       Month View
     </div>
   );

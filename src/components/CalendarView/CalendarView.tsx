@@ -19,7 +19,7 @@ function CalendarView() {
   };
 
   return (
-    <div className="mainContainer">
+    <div id="calendarSection">
       <TimeScaleSelector onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
       {timeScale === TimeScale.Year && <YearView/>}
       {timeScale === TimeScale.Month && <MonthView/>}

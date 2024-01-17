@@ -9,7 +9,7 @@ function TimeScaleSelector(props : any) {
   };
 
   return (
-    <div className="mainContainer">
+    <div>
       <button onClick={() => handleTimeScaleClick(TimeScale.Year)}>Year</button>
       <button onClick={() => handleTimeScaleClick(TimeScale.Month)}>Month</button>
       <button onClick={() => handleTimeScaleClick(TimeScale.Week)}>Week</button>

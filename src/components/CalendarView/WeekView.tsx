@@ -3,7 +3,7 @@ import './WeekView.css';
 
 function WeekView() {
   return (
-    <div className="mainContainer">
+    <div>
       Week View
     </div>
   );

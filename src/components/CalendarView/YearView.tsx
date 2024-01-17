@@ -3,7 +3,7 @@ import './YearView.css';
 
 function YearView() {
   return (
-    <div className="mainContainer">
+    <div>
       Year View
     </div>
   );
