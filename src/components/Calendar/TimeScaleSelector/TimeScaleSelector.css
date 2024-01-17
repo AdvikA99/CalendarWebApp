@@ -1,0 +1,32 @@
+#timeSelectorRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timeSelectorButtonsContainer {
+    --border-width: 2px;
+    --border-color: white;
+
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 5px;
+}
+
+#timeSelectorButtonsContainer > * {
+    flex-basis: 33%;
+}
+
+.timeSelectorButton {
+    background-color: transparent;
+    border-width: 0;
+    padding-top: 3px;
+}
+
+.timeSelectorButton:nth-child(2) {
+    border-left: var(--border-width) solid var(--border-color);
+    border-right: var(--border-width) solid var(--border-color);
+}

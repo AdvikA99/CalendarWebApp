@@ -20,10 +20,12 @@ function Calendar() {
 
   return (
     <div id="calendarSection">
-      <TimeScaleSelector onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
-      {timeScale === TimeScale.Year && <YearView/>}
-      {timeScale === TimeScale.Month && <MonthView/>}
-      {timeScale === TimeScale.Week && <WeekView/>}
+      <div id="calendarPadding">
+        <TimeScaleSelector onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
+        {timeScale === TimeScale.Year && <YearView/>}
+        {timeScale === TimeScale.Month && <MonthView/>}
+        {timeScale === TimeScale.Week && <WeekView/>}
+      </div>
     </div>
   );
 }

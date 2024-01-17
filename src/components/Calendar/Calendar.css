@@ -1,3 +1,7 @@
 #calendarSection {
   background-color: red;
 }
+
+#calendarPadding { 
+  padding: 20px;
+}

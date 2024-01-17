@@ -9,10 +9,12 @@ function TimeScaleSelector(props : any) {
   };
 
   return (
-    <div>
-      <button onClick={() => handleTimeScaleClick(TimeScale.Year)}>Year</button>
-      <button onClick={() => handleTimeScaleClick(TimeScale.Month)}>Month</button>
-      <button onClick={() => handleTimeScaleClick(TimeScale.Week)}>Week</button>
+    <div id="timeSelectorRow">
+      <div id="timeSelectorButtonsContainer">
+        <button className="timeSelectorButton" onClick={() => handleTimeScaleClick(TimeScale.Year)}>Year</button>
+        <button className="timeSelectorButton" onClick={() => handleTimeScaleClick(TimeScale.Month)}>Month</button>
+        <button className="timeSelectorButton" onClick={() => handleTimeScaleClick(TimeScale.Week)}>Week</button>
+      </div>
     </div>
   );
 }
