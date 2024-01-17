@@ -21,7 +21,7 @@ function Calendar() {
   return (
     <div id="calendarSection">
       <div id="calendarPadding">
-        <TimeScaleSelector onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
+        <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
         {timeScale === TimeScale.Year && <YearView/>}
         {timeScale === TimeScale.Month && <MonthView/>}
         {timeScale === TimeScale.Week && <WeekView/>}

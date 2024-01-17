@@ -6,13 +6,13 @@
 
 #timeSelectorButtonsContainer {
     --border-width: 2px;
-    --border-color: white;
+    --selector-color: white;
 
     min-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--border-width) solid var(--border-color);
+    border: var(--border-width) solid var(--selector-color);
     border-radius: 5px;
 }
 
@@ -24,9 +24,20 @@
     background-color: transparent;
     border-width: 0;
     padding-top: 3px;
+    color: var(--selector-color);
+    transition-duration: 200ms;
 }
 
 .timeSelectorButton:nth-child(2) {
-    border-left: var(--border-width) solid var(--border-color);
-    border-right: var(--border-width) solid var(--border-color);
+    border-left: var(--border-width) solid var(--selector-color);
+    border-right: var(--border-width) solid var(--selector-color);
+}
+
+.timeSelectorButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.selectedTimeScale {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    font-weight: bold;
 }
