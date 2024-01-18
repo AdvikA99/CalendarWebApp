@@ -1,0 +1,19 @@
+.noteItem {
+    display: flex;
+}
+
+#addNoteTextArea {
+    flex: 1;
+    resize: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding-bottom: 2px;
+    font-size: 1.2em;
+}
+
+#addNoteTextArea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+}

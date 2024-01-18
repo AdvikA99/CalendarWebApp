@@ -3,6 +3,13 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding: 10px;
     font-size: 12em;
+}
+
+#dateDisplay {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1.2em;
 }

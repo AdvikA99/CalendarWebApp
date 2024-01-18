@@ -1,0 +1,19 @@
+#notesSection {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding:8px;
+    flex: 1;
+}
+
+.notesHeader {
+    font-size: 1.2em;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.notesHeader:last-child {
+    margin-top: 20px;
+}

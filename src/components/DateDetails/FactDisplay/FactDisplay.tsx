@@ -45,9 +45,9 @@ function FactDisplay() {
   return (
     <div>
       {factList && (
-          <div>
-            <p>year: {factList[curFactInd].year}</p>
-            <p>fact: {factList[curFactInd].fact}</p>
+          <div id="factContainer">
+            <p id="factDate"><em>On this date in <strong>{factList[curFactInd].year}</strong>,</em></p>
+            <p id="fact">{factList[curFactInd].fact}</p>
           </div>
         )
       }
