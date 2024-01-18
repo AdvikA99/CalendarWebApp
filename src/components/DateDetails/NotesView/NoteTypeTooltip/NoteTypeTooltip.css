@@ -1,0 +1,16 @@
+#noteTypeTooltipParent {
+    position: relative;
+    display: inline-block;
+}
+
+#noteTypeTooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+    border-radius: 16px;
+}

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './NoteItem.css';
 import { NoteType } from '../NotesView';
+import NoteTypeTooltip from '../NoteTypeTooltip/NoteTypeTooltip';
 
 function NoteItem(props : any) {
 
@@ -44,9 +45,11 @@ function NoteItem(props : any) {
     <div>
       {props.noteType === NoteType.Add && (
         <div className="noteItem">
-          <div className="notesIconDiv notesIconMiscDiv">
-            <img className="notesIcon notesIconMisc"></img>
-          </div>
+          <NoteTypeTooltip>
+            <div className="notesIconDiv notesIconMiscDiv">
+              <img className="notesIcon notesIconMisc"></img>
+            </div>
+          </NoteTypeTooltip>
           <textarea 
             id="addNoteTextArea" 
             rows={1}

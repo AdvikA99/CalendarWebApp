@@ -28,7 +28,7 @@
 }
 
 .notesIconMisc {
-    content: url("notes_misc_icon.png");
+    content: url("../NoteIcons/notes_misc_icon.png");
 }
 
 #addNoteTextArea {
