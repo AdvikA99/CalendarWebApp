@@ -3,7 +3,7 @@
     margin-top: 8px;
 }
 
-.notesIconDiv {
+.notesTypeIconDiv {
     padding: 4px;
     margin-right: 8px;
     border-radius: 50%;
@@ -14,21 +14,37 @@
     max-height: 32px;
 }
 
-.notesIconDiv:hover {
+.notesTypeIconDiv:hover {
     transform: scale(1.05);
 }
 
-.notesIcon {
+.notesTypeIcon {
     width: 32px;
     height: 32px;
 }
 
-.notesIconMiscDiv {
+.notesTypeMiscDiv {
     background-color: rgb(111, 185, 255);
 }
 
-.notesIconMisc {
+.notesTypeMisc {
     content: url("../NoteIcons/notes_misc_icon.png");
+}
+
+.notesTypeReminderDiv {
+    background-color: rgb(111, 255, 164);
+}
+
+.notesTypeReminder {
+    content: url("../NoteIcons/notes_reminder_icon.png");
+}
+
+.notesTypeBirthdayDiv {
+    background-color: rgb(255, 83, 120);
+}
+
+.notesTypeBirthday {
+    content: url("../NoteIcons/notes_birthday_icon.png");
 }
 
 #addNoteTextArea {

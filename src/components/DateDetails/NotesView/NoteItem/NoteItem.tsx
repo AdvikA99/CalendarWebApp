@@ -8,7 +8,8 @@ function NoteItem(props : any) {
   const [addNoteValue, setAddNoteValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
-  const [addNoteType, setAddNoteType] = useState(NoteType.Misc);
+  const initNoteType = props.noteType === NoteType.Add ? NoteType.Misc : props.noteType;
+  const [addNoteType, setAddNoteType] = useState(initNoteType);
 
   useEffect(() => {
     if (textAreaRef.current) {
@@ -36,18 +37,24 @@ function NoteItem(props : any) {
         props.handleEnterPress(addNoteType, event.target.value);
         event.target.value = "";
         setAddNoteValue("");
+        setAddNoteType(initNoteType);
       }
     }
   };
   
+  const handleAddNoteTypeChange = (newNoteType : NoteType) => {
+    setAddNoteType(newNoteType);
+  }
 
   return (
     <div>
       {props.noteType === NoteType.Add && (
         <div className="noteItem">
-          <NoteTypeTooltip>
-            <div className="notesIconDiv notesIconMiscDiv">
-              <img className="notesIcon notesIconMisc"></img>
+          <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange}>
+            <div className={"notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
+                                                    (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
+              <img className={"notesTypeIcon " + (addNoteType === NoteType.Misc ? "notesTypeMisc" : 
+                                                    (addNoteType === NoteType.Reminder ? "notesTypeReminder" : "notesTypeBirthday"))}></img>
             </div>
           </NoteTypeTooltip>
           <textarea 
@@ -61,8 +68,10 @@ function NoteItem(props : any) {
       )}
       {props.noteType !== NoteType.Add && (
         <div className="noteItem">
-          <div className="notesIconDiv notesIconMiscDiv">
-            <img className="notesIcon notesIconMisc"></img>
+          <div className={"notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
+                                                  (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
+            <img className={"notesTypeIcon " + (addNoteType === NoteType.Misc ? "notesTypeMisc" : 
+                                                  (addNoteType === NoteType.Reminder ? "notesTypeReminder" : "notesTypeBirthday"))}></img>
           </div>
           <p className="noteText">{props.noteText}</p>
           <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteKey, props.noteId)}>X</button>

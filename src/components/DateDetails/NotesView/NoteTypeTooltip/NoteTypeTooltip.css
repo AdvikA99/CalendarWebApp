@@ -8,9 +8,61 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: red;
+    background-color: rgb(50, 50, 50);
     color: white;
     padding: 8px;
     z-index: 1000;
     border-radius: 16px;
+}
+
+#noteTypeTooltipSelectionRow {
+    display: flex;
+}
+
+.notesTypeTooltipIconDiv {
+    padding: 4px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    max-height: 32px;
+}
+
+.notesTypeTooltipIconDiv:hover {
+    transform: scale(1.05);
+}
+
+.notesTypeTooltipIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.notesTypeTooltipMiscDiv {
+    background-color: rgb(111, 185, 255);
+}
+
+.notesTypeTooltipMisc {
+    content: url("../NoteIcons/notes_misc_icon.png");
+}
+
+.notesTypeTooltipReminderDiv {
+    background-color: rgb(111, 255, 164);
+}
+
+.notesTypeTooltipReminder {
+    content: url("../NoteIcons/notes_reminder_icon.png");
+}
+
+.notesTypeTooltipBirthdayDiv {
+    background-color: rgb(255, 83, 120);
+}
+
+.notesTypeTooltipBirthday {
+    content: url("../NoteIcons/notes_birthday_icon.png");
+}
+
+.selectedNoteType {
+    border-color: white !important;
 }
