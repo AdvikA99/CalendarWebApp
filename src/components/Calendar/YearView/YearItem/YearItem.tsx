@@ -8,10 +8,11 @@ function dateFromDay(dayInYear : number) : Date {
 }
 
 function YearItem(props : any) {
-  const date = dateFromDay(props.dayInYear);
+  const itemDate = dateFromDay(props.dayInYear);
+  const curDate = new Date();
 
   return (
-    <button className={"yearItem yearItemMonth" + date.getMonth()}>{date.getDate()}</button>
+    <button className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}>{itemDate.getDate()}</button>
   );
 }
 

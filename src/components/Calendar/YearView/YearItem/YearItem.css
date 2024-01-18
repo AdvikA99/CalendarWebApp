@@ -5,58 +5,114 @@
     min-height: var(--year-item-size);
     max-width: var(--year-item-size);
     max-height: var(--year-item-size);
-    margin: 5px;
+    margin: 4px;
     color: white;
     background-color: transparent;
     border-radius: 50%;
     border-width: 2px;
+    border-style: solid;
     font-size: 12px;
     font-weight: bolder;
+    transition-duration: 200ms;
+}
+
+.selected {
+    background-color: white !important;
+    color: black;
 }
 
 .yearItemMonth0 {
     border-color:rgb(255, 92, 92);
 }
 
+.yearItemMonth0:hover {
+    background-color:rgb(255, 92, 92);
+}
+
 .yearItemMonth1 {
     border-color:rgb(255, 185, 32);
+}
+
+.yearItemMonth1:hover {
+    background-color:rgb(255, 185, 32);
 }
 
 .yearItemMonth2 {
     border-color:rgb(255, 240, 22);
 }
 
+.yearItemMonth2:hover {
+    background-color:rgb(255, 240, 22);
+}
+
 .yearItemMonth3 {
     border-color:rgb(222, 255, 82);
+}
+
+.yearItemMonth3:hover {
+    background-color:rgb(222, 255, 82);
 }
 
 .yearItemMonth4 {
     border-color:rgb(121, 255, 100);
 }
 
+.yearItemMonth4:hover {
+    background-color:rgb(121, 255, 100);
+}
+
 .yearItemMonth5 {
     border-color:rgb(88, 255, 233);
+}
+
+.yearItemMonth5:hover {
+    background-color:rgb(88, 255, 233);
 }
 
 .yearItemMonth6 {
     border-color:rgb(24, 208, 244);
 }
 
+.yearItemMonth6:hover {
+    background-color:rgb(24, 208, 244);
+}
+
 .yearItemMonth7 {
     border-color:rgb(72, 113, 255);
 }
+
+.yearItemMonth7:hover {
+    background-color:rgb(72, 113, 255);
+}
+
 .yearItemMonth8 {
     border-color:rgb(154, 72, 255);
+}
+
+.yearItemMonth8:hover {
+    background-color:rgb(154, 72, 255);
 }
 
 .yearItemMonth9 {
     border-color:rgb(250, 110, 255);
 }
 
+.yearItemMonth9:hover {
+    background-color:rgb(250, 110, 255);
+}
+
 .yearItemMonth10 {
     border-color:rgb(255, 50, 178);
 }
 
+.yearItemMonth10:hover {
+    background-color:rgb(255, 50, 178);
+}
+
 .yearItemMonth11 {
     border-color:rgb(255, 81, 122);
+}
+
+.yearItemMonth11:hover {
+    background-color:rgb(255, 81, 122);
 }

@@ -21,7 +21,7 @@ function DateTimeDisplay() {
   }, []);
 
   return (
-    <div>
+    <div id="timeDisplay">
       {currentTime}
     </div>
   );
