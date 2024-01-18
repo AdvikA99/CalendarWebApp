@@ -40,7 +40,11 @@ function NotesView() {
   }
 
   const deleteNote = (noteKey : string, noteId : string) => {
-    
+    const storedNotes = JSON.parse(localStorage.getItem(noteKey) || '[]');
+    const updatedNotes = storedNotes.filter((note: Note) => note.id !== noteId);
+
+    localStorage.setItem(noteKey, JSON.stringify(updatedNotes));
+    setNotes(updatedNotes);
   }
 
   return (
@@ -48,7 +52,8 @@ function NotesView() {
       <p className="notesHeader">Reminders and Notes</p>
       {
         notes.map((note, index) => (
-          <NoteItem 
+          <NoteItem
+            key={note.id}
             noteKey={todayNotesKey} 
             noteId={note.id} 
             noteType={note.type} 

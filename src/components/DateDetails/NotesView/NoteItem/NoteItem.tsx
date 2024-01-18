@@ -62,7 +62,7 @@ function NoteItem(props : any) {
             <img className="notesIcon notesIconMisc"></img>
           </div>
           <p className="noteText">{props.noteText}</p>
-          <button className="deleteNoteButton">X</button>
+          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteKey, props.noteId)}>X</button>
         </div>
       )}
     </div>
