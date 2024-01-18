@@ -4,8 +4,10 @@ import { NoteType } from '../NotesView';
 
 function NoteItem(props : any) {
 
-  const [value, setValue] = useState("");
+  const [addNoteValue, setAddNoteValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  const [addNoteType, setAddNoteType] = useState(NoteType.Misc);
 
   useEffect(() => {
     if (textAreaRef.current) {
@@ -17,27 +19,51 @@ function NoteItem(props : any) {
       // Trying to set this with state or a ref will product an incorrect value.
       textAreaRef.current.style.height = scrollHeight + "px";
     }
-  }, [textAreaRef.current, value]);
+  }, [textAreaRef.current, addNoteValue]);
 
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = evt.target?.value;
 
-    setValue(val);
+    setAddNoteValue(val);
   };
 
+  const handleKeyDown = (event : any) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent the default behavior of the Enter key in a textarea
+
+      if (event.target) {
+        props.handleEnterPress(addNoteType, event.target.value);
+        event.target.value = "";
+        setAddNoteValue("");
+      }
+    }
+  };
+  
+
   return (
-    <div className="noteItem">
-      <span>+ </span>
+    <div>
       {props.noteType === NoteType.Add && (
-        <textarea 
-          id="addNoteTextArea" 
-          rows={1}
-          onChange={handleChange}
-          placeholder="Add a new Note"
-          ref={textAreaRef}></textarea>
+        <div className="noteItem">
+          <div className="notesIconDiv notesIconMiscDiv">
+            <img className="notesIcon notesIconMisc"></img>
+          </div>
+          <textarea 
+            id="addNoteTextArea" 
+            rows={1}
+            onChange={handleChange}
+            placeholder="Add a new Note"
+            onKeyDown={handleKeyDown}
+            ref={textAreaRef}></textarea>
+        </div>
       )}
       {props.noteType !== NoteType.Add && (
-        <button></button>
+        <div className="noteItem">
+          <div className="notesIconDiv notesIconMiscDiv">
+            <img className="notesIcon notesIconMisc"></img>
+          </div>
+          <p className="noteText">{props.noteText}</p>
+          <button className="deleteNoteButton">X</button>
+        </div>
       )}
     </div>
   );

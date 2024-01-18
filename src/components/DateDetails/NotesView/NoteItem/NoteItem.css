@@ -1,5 +1,34 @@
 .noteItem {
     display: flex;
+    margin-top: 8px;
+}
+
+.notesIconDiv {
+    padding: 4px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    max-height: 32px;
+}
+
+.notesIconDiv:hover {
+    transform: scale(1.05);
+}
+
+.notesIcon {
+    width: 32px;
+    height: 32px;
+}
+
+.notesIconMiscDiv {
+    background-color: rgb(111, 185, 255);
+}
+
+.notesIconMisc {
+    content: url("notes_misc_icon.png");
 }
 
 #addNoteTextArea {
@@ -11,9 +40,30 @@
     color: white;
     padding-bottom: 2px;
     font-size: 1.2em;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 #addNoteTextArea:focus {
     outline: none;
     border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.noteText {
+    flex: 1;
+}
+
+.deleteNoteButton {
+    max-height: 32px;
+    width: 32px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border-style: solid;
+    border: 1px solid white;
+}
+
+.deleteNoteButton:hover {
+    background-color: rgb(200, 0, 0);
 }
