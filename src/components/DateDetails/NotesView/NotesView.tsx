@@ -40,8 +40,7 @@ function NotesView() {
   }
 
   const deleteNote = (noteKey : string, noteId : string) => {
-    const storedNotes = JSON.parse(localStorage.getItem(noteKey) || '[]');
-    const updatedNotes = storedNotes.filter((note: Note) => note.id !== noteId);
+    const updatedNotes = notes.filter((note: Note) => note.id !== noteId);
 
     localStorage.setItem(noteKey, JSON.stringify(updatedNotes));
     setNotes(updatedNotes);
