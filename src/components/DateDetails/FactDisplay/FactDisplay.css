@@ -37,7 +37,7 @@
 }
 
 .factUnfavorited {
-    border: 1px solid gold;
+    outline: 1px solid gold;
 }
 
 .factFavorited {

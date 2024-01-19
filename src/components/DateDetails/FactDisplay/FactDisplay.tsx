@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './FactDisplay.css';
 
-interface Fact {
+export interface Fact {
   year: string;
   fact: string;
+}
+
+export interface FavoriteFact {
+  factListKey: string,
+  factInd: number,
 }
 
 // Formats current date as ddMM
@@ -15,11 +20,6 @@ function getFormattedDate() {
   const formattedDate = day + month;
 
   return formattedDate;
-}
-
-interface FavoriteFact {
-  factListKey: string,
-  factInd: number,
 }
 
 function FactDisplay() {

@@ -1,0 +1,66 @@
+#favoriteFactsModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 200px;
+    min-height: 200px;
+    background-color: rgb(30, 30, 30);
+    transform: translate(-50%, -50%);
+    box-shadow: 24px;
+    border-radius: 16px;
+    color: white;
+    padding: 16px;
+    max-height: 80%;
+    overflow-y: scroll;
+    /* Hides Scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#favoriteFactsModal::-webkit-scrollbar {
+  display: none;
+}
+
+
+#favoriteFactsModalHeader {
+    display: flex;
+}
+
+#favoriteFactsModalIcon {
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    background-color: gold;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+#favoriteFactsModalTitle {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+#favoriteFactsList {
+    margin-top: 16px;
+}
+
+.favoriteFactModalHeader {
+    font-size: 1.2em;
+    color: rgb(100, 180, 255);
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.favoriteFactModalSubheader {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 8px;
+    font-variant: small-caps;
+}
+
+.favoriteFactModalMonthGroup {
+    margin-top: 16px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid rgb(50, 50, 50);
+}

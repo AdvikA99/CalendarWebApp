@@ -1,0 +1,8 @@
+.favoriteFactItem {
+    color: rgb(200, 200, 200);
+    margin-top: 4px;
+}
+
+.favoriteFactItemYear {
+    font-weight: bold;
+}

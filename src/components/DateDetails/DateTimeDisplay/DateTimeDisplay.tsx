@@ -11,10 +11,10 @@ function getCurrentTimeText() {
 function getCurrentDateText() {
   const today = new Date();
   const month = today.toLocaleString('default', { month: 'long' });
-  const dateEnding = (today.getDate() === 1 || today.getDate() === 21 ? "st" :
+  const dateSuffix = (today.getDate() === 1 || today.getDate() === 21 || today.getDate() === 31 ? "st" :
                         (today.getDate() === 2 || today.getDate() === 22 ? "nd" : 
                           (today.getDate() === 3 || today.getDate() === 23 ? "rd" : "th")));
-  return `Today is ${month} ${today.getDate()}${dateEnding}, ${today.getFullYear()}`;
+  return `Today is ${month} ${today.getDate()}${dateSuffix}, ${today.getFullYear()}`;
 }
 
 function DateTimeDisplay() {
