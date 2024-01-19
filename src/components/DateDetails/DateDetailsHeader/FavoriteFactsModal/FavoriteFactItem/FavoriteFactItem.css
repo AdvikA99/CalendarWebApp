@@ -1,6 +1,22 @@
 .favoriteFactItem {
+    display: flex;
     color: rgb(200, 200, 200);
     margin-top: 4px;
+}
+
+.removeFavoriteFactButton {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: rgb(255, 40, 40);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    font-weight: bolder;
+}
+
+.removeFavoriteFactButton:hover {
+    background-color: rgb(200, 40, 40);
 }
 
 .favoriteFactItemYear {

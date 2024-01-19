@@ -3,12 +3,11 @@ import './DateDetailsHeader.css';
 import Modal from '@mui/material/Modal';
 import FavoriteFactsModal from './FavoriteFactsModal/FavoriteFactsModal';
 
-function DateDetailsHeader() {
+function DateDetailsHeader(props: any) {
   
   const [openFavoriteFactsModal, setOpenFavoriteFactsModal] = useState(true);
   const handleOpen = () => setOpenFavoriteFactsModal(true);
   const handleClose = () => setOpenFavoriteFactsModal(false);
-
 
 
   return (
@@ -17,7 +16,7 @@ function DateDetailsHeader() {
       <Modal
         open={openFavoriteFactsModal}
         onClose={handleClose}>
-          <div><FavoriteFactsModal/></div>
+          <div><FavoriteFactsModal favoriteFacts={props.favoriteFacts} setFavoriteFacts={props.setFavoriteFacts}/></div>
       </Modal>
     </div>
   );

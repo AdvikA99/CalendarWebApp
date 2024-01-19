@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './FactDisplay.css';
+import { FavoriteFact } from '../DateDetails';
 
 export interface Fact {
   year: string;
   fact: string;
-}
-
-export interface FavoriteFact {
-  factListKey: string,
-  factInd: number,
 }
 
 // Formats current date as ddMM
@@ -22,11 +18,10 @@ function getFormattedDate() {
   return formattedDate;
 }
 
-function FactDisplay() {
+function FactDisplay(props : any) {
   const [factList, setFactList] = useState<Fact[] | null>(null);
   const [curFactInd, setCurFactInd] = useState(0);
   const [factFavorited, setFactFavorited] = useState(false);
-  const [favoriteFacts, setFavoriteFacts] = useState<FavoriteFact[]>([]);
   
   const factListKey = getFormattedDate();
 
@@ -42,8 +37,6 @@ function FactDisplay() {
     };
 
     fetchData();
-
-    setFavoriteFacts(JSON.parse(localStorage.getItem("favoriteFacts") || '[]'));
   }, []);
 
   const setRandomCurFactInd = () => {
@@ -58,24 +51,24 @@ function FactDisplay() {
 
   useEffect(() => {
     // Check if fact is favorited or not
-    const isFavorited = favoriteFacts.some(
+    const isFavorited = (props.favoriteFacts as FavoriteFact[]).some(
       fact => { return fact.factInd === curFactInd && fact.factListKey === factListKey });
     setFactFavorited(isFavorited);
-  }, [curFactInd]);
+  }, [curFactInd, props.favoriteFacts]);
 
   const handleToggleFavoriteFact = () => {
     if (factFavorited) {
       // Remove from local storage
-      const updatedFavoriteFacts = favoriteFacts.filter((fact: FavoriteFact) => fact.factListKey !== factListKey && fact.factInd !== curFactInd);
+      const updatedFavoriteFacts = props.favoriteFacts.filter((fact: FavoriteFact) => fact.factListKey !== factListKey || fact.factInd !== curFactInd);
 
       localStorage.setItem("favoriteFacts", JSON.stringify(updatedFavoriteFacts));
-      setFavoriteFacts(updatedFavoriteFacts);
+      props.setFavoriteFacts(updatedFavoriteFacts);
       setFactFavorited(false);
     } else {
       // Add to local storage
-      const updatedFavoriteFacts = [...favoriteFacts, {factListKey: factListKey, factInd: curFactInd}];
+      const updatedFavoriteFacts = [...props.favoriteFacts, {factListKey: factListKey, factInd: curFactInd}];
       localStorage.setItem("favoriteFacts", JSON.stringify(updatedFavoriteFacts));
-      setFavoriteFacts(updatedFavoriteFacts);
+      props.setFavoriteFacts(updatedFavoriteFacts);
       setFactFavorited(true);
     }
   }

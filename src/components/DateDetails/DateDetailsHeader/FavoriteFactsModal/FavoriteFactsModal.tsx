@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import './FavoriteFactsModal.css';
-import { Fact, FavoriteFact } from '../../FactDisplay/FactDisplay';
+import { Fact } from '../../FactDisplay/FactDisplay';
 import FavoriteFactItem from './FavoriteFactItem/FavoriteFactItem';
+import { FavoriteFact } from '../../DateDetails';
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -23,9 +24,8 @@ const shortenMonthName = (monthInd : number) => {
   }
 }
 
-function FavoriteFactsModal() {
+function FavoriteFactsModal(props: any) {
   const [allFacts, setAllFacts] = useState<{[key: string]: Fact[]}>({});
-  const [monthSelected, setMonthSelected] = useState(0);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -41,11 +41,12 @@ function FavoriteFactsModal() {
     fetchData();
   }, []);
 
-  const handleChangeMonthSelected = (newSelectedMonth : number) => {
-    setMonthSelected(newSelectedMonth);
-  }
-
-  const favoriteFacts : FavoriteFact[] = JSON.parse(localStorage.getItem("favoriteFacts") || '[]');
+  const handleRemoveFavoriteFact = (factListKey : string, factInd : number) => {
+    // Remove from local storage
+    const updatedFavoriteFacts = (props.favoriteFacts as FavoriteFact[]).filter((fact: FavoriteFact) => fact.factListKey !== factListKey || fact.factInd !== factInd);
+    localStorage.setItem("favoriteFacts", JSON.stringify(updatedFavoriteFacts));
+    props.setFavoriteFacts(updatedFavoriteFacts);
+  };
 
   return (
     <div id="favoriteFactsModal">
@@ -60,7 +61,7 @@ function FavoriteFactsModal() {
             months.reduce((monthAcc: {[key: string]: ReactNode[]}, monthName, monthIndex) => {
               const monthKey = (monthIndex + 1).toString().padStart(2, "0");
 
-              const monthGroup = favoriteFacts
+              const monthGroup = (props.favoriteFacts as FavoriteFact[])
                 .filter((fact) => fact.factListKey.substring(2, 4) === monthKey)
                 .reduce((dateAcc: {[key: string]: ReactNode[]}, fact) => {
                   const dateKey = fact.factListKey.substring(0, 2);
@@ -74,6 +75,7 @@ function FavoriteFactsModal() {
                       <FavoriteFactItem
                         key={key}
                         fact={allFacts[fact.factListKey][fact.factInd]}
+                        onRemoveFavoriteFact={() => handleRemoveFavoriteFact(fact.factListKey, fact.factInd)}
                       />
                     );
                   }

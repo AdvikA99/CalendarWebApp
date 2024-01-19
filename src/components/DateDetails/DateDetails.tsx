@@ -5,13 +5,24 @@ import DateTimeDisplay from './DateTimeDisplay/DateTimeDisplay';
 import NotesView from './NotesView/NotesView';
 import DateDetailsHeader from './DateDetailsHeader/DateDetailsHeader';
 
+export interface FavoriteFact {
+  factListKey: string,
+  factInd: number,
+}
+
+
 function DateDetails() {
-  
+  const [favoriteFacts, setFavoriteFacts] = useState<FavoriteFact[]>([]);
+
+  useEffect(() => {
+    setFavoriteFacts(JSON.parse(localStorage.getItem("favoriteFacts") || '[]'));
+  }, []);
+
   return (
     <div id="detailsSection">
-      <DateDetailsHeader></DateDetailsHeader>
+      <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></DateDetailsHeader>
       <DateTimeDisplay></DateTimeDisplay>
-      <FactDisplay></FactDisplay>
+      <FactDisplay favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></FactDisplay>
       <NotesView></NotesView>
     </div>
   );
