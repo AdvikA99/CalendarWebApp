@@ -1,5 +1,6 @@
 import React from 'react';
 import './YearItem.css';
+import YearItemTooltip from '../YearItemTooltip/YearItemTooltip';
 
 function dateFromDay(dayInYear : number) : Date {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,9 @@ function YearItem(props : any) {
   const curDate = new Date();
 
   return (
-    <button className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}>{itemDate.getDate()}</button>
+    <YearItemTooltip>
+      <button className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}>{itemDate.getDate()}</button>
+    </YearItemTooltip>
   );
 }
 

@@ -1,0 +1,17 @@
+#yearItemTooltipParent {
+    position: relative;
+    display: inline-block;
+}
+
+#yearItemTooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(50, 50, 50);
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+    border-radius: 16px;
+    width: 200px;
+}

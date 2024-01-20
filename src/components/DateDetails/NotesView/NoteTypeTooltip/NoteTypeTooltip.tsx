@@ -2,6 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './NoteTypeTooltip.css';
 import { NoteType } from '../NotesView';
 
+const getNoteTypeName = (noteType : NoteType) => {
+  switch (noteType) {
+    case NoteType.Birthday:
+      return "Birthday";
+    case NoteType.Misc:
+      return "Note";
+    case NoteType.Reminder:
+      return "Reminder";
+    default:
+      return "ERROR UNKNOWN NOTE TYPE";
+  }
+}
+
 function NoteTypeTooltip(props: any) {
 
   const [isTooltipVisible, setTooltipVisible] = useState(false);
@@ -19,7 +32,7 @@ function NoteTypeTooltip(props: any) {
       {props.children}
       {isTooltipVisible && (
         <div id="noteTypeTooltip">
-          <p>{props.selectedNoteType}</p>
+          <p>{getNoteTypeName(props.selectedNoteType)}</p>
           <div id="noteTypeTooltipSelectionRow">
             <div className={"notesTypeTooltipIconDiv notesTypeTooltipMiscDiv" + (props.selectedNoteType === NoteType.Misc ? " selectedNoteType" : "")}>
               <img className="notesTypeTooltipIcon notesTypeTooltipMisc" onClick={() => props.onSelectionChange(NoteType.Misc)}></img>

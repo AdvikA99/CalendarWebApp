@@ -5,7 +5,7 @@ import FavoriteFactsModal from './FavoriteFactsModal/FavoriteFactsModal';
 
 function DateDetailsHeader(props: any) {
   
-  const [openFavoriteFactsModal, setOpenFavoriteFactsModal] = useState(true);
+  const [openFavoriteFactsModal, setOpenFavoriteFactsModal] = useState(false);
   const handleOpen = () => setOpenFavoriteFactsModal(true);
   const handleClose = () => setOpenFavoriteFactsModal(false);
 
