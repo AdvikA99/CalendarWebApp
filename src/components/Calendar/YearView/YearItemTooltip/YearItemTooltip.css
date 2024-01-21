@@ -42,3 +42,8 @@
     transform: rotate(45deg);
     z-index: 1000;
 }
+
+#yearItemTooltipAdditionalNotesMessage {
+    font-size: 0.9em;
+    font-style: italic;
+}

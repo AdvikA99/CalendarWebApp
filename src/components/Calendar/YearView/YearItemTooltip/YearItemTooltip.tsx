@@ -70,7 +70,7 @@ function YearItemTooltip(props : any) {
           className={showOnTop ? "yearItemTooltipTop" : "yearItemTooltipBottom"}>
           <p>{month} {date.getDate() + dateSuffix}</p>
           {
-            (props.notes as Note[]).filter((note) => (note.date === dateCode)).map((note, index) => (
+            (props.notes as Note[]).filter((note) => (note.date === dateCode)).slice(0, 3).map((note, index) => (
               <YearItemTooltipNoteItem
                 key={note.id}
                 noteDate={dateCode} 
@@ -78,6 +78,11 @@ function YearItemTooltip(props : any) {
                 noteType={note.type} 
                 noteText={note.text}/>
             ))
+          }
+          {
+           (props.notes as Note[]).filter((note) => (note.date === dateCode)).length > 3 && (
+              <p id="yearItemTooltipAdditionalNotesMessage">+{props.notes.length - 3} more...</p>
+            )
           }
         </div>
       )}

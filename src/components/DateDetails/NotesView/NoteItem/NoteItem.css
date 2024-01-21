@@ -22,7 +22,7 @@
     transform: scale(1.05);
 }
 
-.notesTypeIcon {
+.notesTypeIconDiv, .notesTypeIcon {
     width: 24px;
     height: 24px;
 }

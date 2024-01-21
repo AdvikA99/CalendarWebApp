@@ -4,6 +4,8 @@ import { NoteType } from '../../../../App';
 
 function YearItemTooltipNoteItem(props : any) {
   
+  const characterLimit = 50;
+
   return (
     <div className="yearItemTooltipNoteItem">
       <div className={"yearItemTooltipNotesTypeIconDiv " + (props.noteType === NoteType.Misc ? "yearItemTooltipNotesTypeMiscDiv" : 
@@ -13,7 +15,7 @@ function YearItemTooltipNoteItem(props : any) {
           src={"NoteIcons/notes_" + (props.noteType === NoteType.Misc ? "misc" : 
             (props.noteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
       </div>
-      {props.noteText}
+      <p className="yearItemTooltipNotesText">{props.noteText.length > characterLimit ? `${props.noteText.slice(0, characterLimit)}...` : props.noteText}</p>
     </div>
   );
 }
