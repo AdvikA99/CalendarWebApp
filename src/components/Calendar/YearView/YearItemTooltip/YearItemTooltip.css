@@ -5,11 +5,36 @@
 
 #yearItemTooltip {
     position: absolute;
-    bottom: 100%;
-    background-color: rgb(50, 50, 50);
+    background-color: rgb(80, 80, 80);
     color: white;
     padding: 8px;
     z-index: 1000;
     border-radius: 16px;
     width: 200px;
+}
+
+.yearItemTooltipTop {
+    bottom: calc(100% + 8px);
+}
+
+.yearItemTooltipBottom {
+    top: calc(100% + 8px);
+}
+
+.yearItemTooltipArrowTop {
+    bottom: 100%;
+}
+
+.yearItemTooltipArrowBottom {
+    top: 100%;
+}
+
+#yearItemTooltipArrow {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 29%;
+    background-color: rgb(80, 80, 80);
+    transform: rotate(45deg);
+    z-index: 1000;
 }
