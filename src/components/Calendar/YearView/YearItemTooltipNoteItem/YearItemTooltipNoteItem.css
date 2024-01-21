@@ -1,0 +1,31 @@
+.yearItemTooltipNoteItem {
+    display: flex;
+    margin-top: 4px;
+}
+
+.yearItemTooltipNotesTypeIconDiv {
+    padding: 4px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    max-height: 32px;
+}
+
+.yearItemTooltipNotesTypeIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.yearItemTooltipNotesTypeMiscDiv {
+    background-color: rgb(111, 185, 255);
+}
+
+.yearItemTooltipNotesTypeReminderDiv {
+    background-color: rgb(111, 255, 164);
+}
+
+.yearItemTooltipNotesTypeBirthdayDiv {
+    background-color: rgb(255, 83, 120);
+}

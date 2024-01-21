@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './YearItemTooltip.css';
 import { dateFromDay } from '../YearItem/YearItem';
+import NoteItem from '../../../DateDetails/NotesView/NoteItem/NoteItem';
+import { Note, getFormattedDate } from '../../../../App';
+import YearItemTooltipNoteItem from '../YearItemTooltipNoteItem/YearItemTooltipNoteItem';
 
 function YearItemTooltip(props : any) {
   const tooltipParentRef = useRef<HTMLDivElement>(null);
@@ -43,15 +46,17 @@ function YearItemTooltip(props : any) {
     setTooltipVisible(false);
   };
 
-  const date = dateFromDay(props.dayInYear);
+  const date = props.itemDate;
   const month = date.toLocaleString('default', { month: 'long' });
   const dateSuffix = (date.getDate() === 1 || date.getDate() === 21 || date.getDate() === 31 ? "st" :
                         (date.getDate() === 2 || date.getDate() === 22 ? "nd" : 
                           (date.getDate() === 3 || date.getDate() === 23 ? "rd" : "th")));
 
+  const dateCode = getFormattedDate(date);
+            
   return (
     <div id="yearItemTooltipParent" ref={tooltipParentRef}>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div id="yearItemTooltipChildrenContainer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {props.children}
       </div>
       {isTooltipVisible && (   
@@ -64,6 +69,16 @@ function YearItemTooltip(props : any) {
           style={{left: leftPosition}}
           className={showOnTop ? "yearItemTooltipTop" : "yearItemTooltipBottom"}>
           <p>{month} {date.getDate() + dateSuffix}</p>
+          {
+            (props.notes as Note[]).filter((note) => (note.date === dateCode)).map((note, index) => (
+              <YearItemTooltipNoteItem
+                key={note.id}
+                noteDate={dateCode} 
+                noteId={note.id} 
+                noteType={note.type} 
+                noteText={note.text}/>
+            ))
+          }
         </div>
       )}
     </div>

@@ -10,8 +10,7 @@ export interface FavoriteFact {
   factInd: number,
 }
 
-
-function DateDetails() {
+function DateDetails(props : any) {
   const [favoriteFacts, setFavoriteFacts] = useState<FavoriteFact[]>([]);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function DateDetails() {
       <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></DateDetailsHeader>
       <DateTimeDisplay></DateTimeDisplay>
       <FactDisplay favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></FactDisplay>
-      <NotesView></NotesView>
+      <NotesView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}></NotesView>
     </div>
   );
 }

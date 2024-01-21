@@ -13,7 +13,7 @@ function YearItem(props : any) {
   const curDate = new Date();
 
   return (
-    <YearItemTooltip dayInYear={props.dayInYear}>
+    <YearItemTooltip itemDate={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}>
       <button className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}>{itemDate.getDate()}</button>
     </YearItemTooltip>
   );

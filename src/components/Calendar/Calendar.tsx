@@ -11,7 +11,7 @@ export enum TimeScale {
   Week
 }
 
-function Calendar() {
+function Calendar(props: any) {
   const [timeScale, setTimeScale] = useState(TimeScale.Year);
 
   const handleTimeScaleChange = (newTimeScale : TimeScale) => {
@@ -22,7 +22,7 @@ function Calendar() {
     <div id="calendarSection">
       <div id="calendarPadding">
         <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
-        {timeScale === TimeScale.Year && <YearView/>}
+        {timeScale === TimeScale.Year && <YearView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
         {timeScale === TimeScale.Month && <MonthView/>}
         {timeScale === TimeScale.Week && <WeekView/>}
       </div>

@@ -3,6 +3,10 @@
     display: inline-block;
 }
 
+#yearItemTooltipChildrenContainer {
+    border-radius: 50%;
+}
+
 #yearItemTooltip {
     position: absolute;
     background-color: rgb(80, 80, 80);

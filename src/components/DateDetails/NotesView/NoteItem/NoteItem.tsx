@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './NoteItem.css';
-import { NoteType } from '../NotesView';
 import NoteTypeTooltip from '../NoteTypeTooltip/NoteTypeTooltip';
+import { NoteType } from '../../../../App';
 
 function NoteItem(props : any) {
 
@@ -34,7 +34,7 @@ function NoteItem(props : any) {
       event.preventDefault(); // Prevent the default behavior of the Enter key in a textarea
 
       if (event.target) {
-        props.handleEnterPress(addNoteType, event.target.value);
+        props.handleEnterPress(props.noteDate, addNoteType, event.target.value);
         event.target.value = "";
         setAddNoteValue("");
         setAddNoteType(initNoteType);
@@ -51,10 +51,12 @@ function NoteItem(props : any) {
       {props.noteType === NoteType.Add && (
         <div className="noteItem">
           <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange}>
-            <div className={"notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
+            <div className={"selectable notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
                                                     (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
-              <img className={"notesTypeIcon " + (addNoteType === NoteType.Misc ? "notesTypeMisc" : 
-                                                    (addNoteType === NoteType.Reminder ? "notesTypeReminder" : "notesTypeBirthday"))}></img>
+              <img 
+                className={"notesTypeIcon"}
+                src={"NoteIcons/notes_" + (addNoteType === NoteType.Misc ? "misc" : 
+                  (addNoteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
             </div>
           </NoteTypeTooltip>
           <textarea 
@@ -70,11 +72,13 @@ function NoteItem(props : any) {
         <div className="noteItem">
           <div className={"notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
                                                   (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
-            <img className={"notesTypeIcon " + (addNoteType === NoteType.Misc ? "notesTypeMisc" : 
-                                                  (addNoteType === NoteType.Reminder ? "notesTypeReminder" : "notesTypeBirthday"))}></img>
+            <img 
+              className={"notesTypeIcon"}
+              src={"NoteIcons/notes_" + (props.noteType === NoteType.Misc ? "misc" : 
+                (props.noteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
           </div>
           <p className="noteText">{props.noteText}</p>
-          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteKey, props.noteId)}>X</button>
+          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteId)}>X</button>
         </div>
       )}
     </div>

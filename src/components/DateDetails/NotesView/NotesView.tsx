@@ -1,66 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './NotesView.css';
 import NoteItem from './NoteItem/NoteItem';
-import { v4 as uuid } from 'uuid';
+import { Note, NoteType, getFormattedDate } from '../../../App';
 
-export enum NoteType {
-  Add,
-  Misc,
-  Birthday,
-  Reminder
-}
-
-function getFormattedDate() {
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0'); // +1 as Months are zero-based
-  const formattedDate = day + month + today.getFullYear();
-
-  return formattedDate;
-}
-
-export interface Note {
-  id: string,
-  type: NoteType,
-  text: string
-}
-
-function NotesView() {
-  const todayNotesKey = getFormattedDate();
-  const [notes, setNotes] = useState<Note[]>([]);
-
-  useEffect(() => {
-    setNotes(JSON.parse(localStorage.getItem(todayNotesKey) || '[]'));
-  }, []);
-
-  const saveNewNote = (newNoteType : NoteType, noteText : string) => {
-    const updatedNotes = [...notes, {id: uuid(), type: newNoteType, text: noteText }];
-    localStorage.setItem(todayNotesKey, JSON.stringify(updatedNotes));
-    setNotes(updatedNotes);
-  }
-
-  const deleteNote = (noteKey : string, noteId : string) => {
-    const updatedNotes = notes.filter((note: Note) => note.id !== noteId);
-
-    localStorage.setItem(noteKey, JSON.stringify(updatedNotes));
-    setNotes(updatedNotes);
-  }
+function NotesView(props : any) {
+  const dateCode = getFormattedDate(new Date());
 
   return (
     <div id="notesSection">
       <p className="notesHeader">Reminders and Notes</p>
       {
-        notes.map((note, index) => (
+        (props.notes as Note[]).filter((note) => (note.date === dateCode)).map((note, index) => (
           <NoteItem
             key={note.id}
-            noteKey={todayNotesKey} 
+            noteDate={dateCode} 
             noteId={note.id} 
             noteType={note.type} 
             noteText={note.text}
-            handleDelete={deleteNote}></NoteItem>
+            handleDelete={props.deleteNote}></NoteItem>
         ))
       }
-      <NoteItem noteType={NoteType.Add} handleEnterPress={saveNewNote}></NoteItem>
+      <NoteItem noteDate={dateCode} noteType={NoteType.Add} handleEnterPress={props.saveNewNote}></NoteItem>
       <p className="notesHeader">Upcoming Reminders and Notes</p>
     </div>
   );
