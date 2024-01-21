@@ -6,8 +6,6 @@
 #yearItemTooltip {
     position: absolute;
     bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
     background-color: rgb(50, 50, 50);
     color: white;
     padding: 8px;
