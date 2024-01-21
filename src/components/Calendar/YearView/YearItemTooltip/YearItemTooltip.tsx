@@ -15,7 +15,7 @@ function YearItemTooltip(props : any) {
 
   useEffect(() => {
     const updatePosition = () => {
-      if (tooltipParentRef.current && tooltipRef.current) {
+      if (isTooltipVisible && tooltipParentRef.current && tooltipRef.current) {
         const rectParent = tooltipParentRef.current.getBoundingClientRect();
         const rect = tooltipRef.current.getBoundingClientRect();
         
@@ -37,6 +37,10 @@ function YearItemTooltip(props : any) {
       window.removeEventListener('resize', updatePosition);
     };
   }, [isTooltipVisible]);
+
+  useEffect(() => {
+    setTooltipVisible(isTooltipVisible && !props.isDateModalOpen);
+  }, [props.isDateModalOpen])
 
   const handleMouseEnter = () => {
     setTooltipVisible(true);
@@ -68,7 +72,7 @@ function YearItemTooltip(props : any) {
           ref={tooltipRef} 
           style={{left: leftPosition}}
           className={showOnTop ? "yearItemTooltipTop" : "yearItemTooltipBottom"}>
-          <p>{month} {date.getDate() + dateSuffix}</p>
+          <p id="yearItemTooltipHeader">{month} {date.getDate() + dateSuffix}</p>
           {
             (props.notes as Note[]).filter((note) => (note.date === dateCode)).slice(0, 3).map((note, index) => (
               <YearItemTooltipNoteItem

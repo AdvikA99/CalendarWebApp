@@ -1,19 +1,28 @@
 #noteTypeTooltipParent {
     position: relative;
     display: inline-block;
+    overflow: visible;
 }
 
 #noteTypeTooltip {
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
     background-color: rgb(50, 50, 50);
     color: white;
     padding: 8px;
     padding-top:4px;
-    z-index: 1000;
+    z-index: 2000;
     border-radius: 16px;
+}
+
+.noteTypeTooltipAbove {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.noteTypeTooltipRight {
+    bottom: -50%;
+    left: calc(100% - 8px);
 }
 
 #noteTypeTooltipName {

@@ -31,7 +31,7 @@ function NoteTypeTooltip(props: any) {
     <div id="noteTypeTooltipParent" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {props.children}
       {isTooltipVisible && (
-        <div id="noteTypeTooltip">
+        <div id="noteTypeTooltip" className={props.tooltipDirection === "above" ? "noteTypeTooltipAbove" : "noteTypeTooltipRight"}>
           <p id="noteTypeTooltipName">{getNoteTypeName(props.selectedNoteType)}</p>
           <div id="noteTypeTooltipSelectionRow">
             <div className={"notesTypeTooltipIconDiv notesTypeTooltipMiscDiv" + (props.selectedNoteType === NoteType.Misc ? " selectedNoteType" : "")}>

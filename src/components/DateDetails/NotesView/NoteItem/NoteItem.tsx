@@ -50,7 +50,7 @@ function NoteItem(props : any) {
     <div>
       {props.noteType === NoteType.Add && (
         <div className="noteItem">
-          <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange}>
+          <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange} tooltipDirection="above">
             <div className={"selectable notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
                                                     (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
               <img 

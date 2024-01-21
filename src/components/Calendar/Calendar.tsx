@@ -20,12 +20,10 @@ function Calendar(props: any) {
 
   return (
     <div id="calendarSection">
-      <div id="calendarPadding">
-        <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
+      <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
         {timeScale === TimeScale.Year && <YearView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
         {timeScale === TimeScale.Month && <MonthView/>}
         {timeScale === TimeScale.Week && <WeekView/>}
-      </div>
     </div>
   );
 }
