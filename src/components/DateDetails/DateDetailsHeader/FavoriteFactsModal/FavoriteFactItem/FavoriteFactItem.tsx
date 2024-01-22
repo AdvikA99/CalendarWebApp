@@ -10,8 +10,8 @@ function FavoriteFactItem(props: any) {
 
   return (
     <div className="favoriteFactItem">
-      <button className="removeFavoriteFactButton" onClick={handleOpen}>X</button>
-      <p><span className="favoriteFactItemYear">({props.fact.year})</span> {props.fact.fact}</p>
+      <p className="favoriteFactText"><span className="favoriteFactItemYear">({props.fact.year})</span> {props.fact.fact}</p>
+      <button className="removeFavoriteFactButton" onClick={handleOpen}>✖</button>
 
       <Modal
         open={openConfirmRemoveFavoriteFactModal}

@@ -15,11 +15,11 @@
     align-items: center;
     border: var(--border-width) solid var(--selector-color);
     border-radius: 5px;
-    background: rgb(40, 40, 40, 1);
+    background: rgb(40, 40, 40);
 }
 
 #timeSelectorButtonsContainer > * {
-    flex-basis: 33%;
+    flex-basis: 34%;
 }
 
 .timeSelectorButton {

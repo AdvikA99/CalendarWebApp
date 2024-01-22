@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './YearItem.css';
 import YearItemTooltip from '../YearItemTooltip/YearItemTooltip';
 import Modal from '@mui/material/Modal';
 import DateModal from '../../DateModal/DateModal';
+import { Note, getFormattedDate } from '../../../../App';
 
 export function dateFromDay(dayInYear : number) : Date {
   const currentYear = new Date().getFullYear();
@@ -12,27 +13,39 @@ export function dateFromDay(dayInYear : number) : Date {
 
 function YearItem(props : any) {
   const [openDateModal, setOpenDateModal] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState("transparent");
   const handleOpen = () => setOpenDateModal(true);
   const handleClose = () => setOpenDateModal(false);
 
   const itemDate = dateFromDay(props.dayInYear);
   const curDate = new Date();
 
+  useEffect(() => {
+    if ((props.notes as Note[]).filter((note) => note.date === getFormattedDate(itemDate)).length > 0) {
+      setBackgroundColor(`var(--year-item-color-${itemDate.getMonth() % 3}B`);
+    } else {
+      setBackgroundColor("transparent");
+    }
+  }, [props.notes]);
+
   return (
-    <YearItemTooltip itemDate={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote} isDateModalOpen={openDateModal}>
-      <button 
-        className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}
-        onClick={() => {
-          handleOpen();
-        }}>
-          {itemDate.getDate()}
-      </button>
+    <div>
+      <YearItemTooltip itemDate={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote} isDateModalOpen={openDateModal}>
+        <button 
+          className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}
+          onClick={() => {
+            handleOpen();
+          }}
+          style={{backgroundColor: backgroundColor}}>
+            {itemDate.getDate()}
+        </button>
+      </YearItemTooltip>
       <Modal
         open={openDateModal}
         onClose={handleClose}>
           <div><DateModal date={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/></div>
       </Modal>
-    </YearItemTooltip>
+    </div>
   );
 }
 
