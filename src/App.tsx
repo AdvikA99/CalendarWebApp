@@ -26,6 +26,8 @@ export function getFormattedDate(date : Date) {
   return formattedDate;
 }
 
+export const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
 

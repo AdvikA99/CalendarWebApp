@@ -1,0 +1,68 @@
+.weekItemParent {
+    display: flex;
+    width: 100%;
+    height: 200px;
+}
+
+.weekItem {
+    text-align: left;
+    cursor: pointer;
+    padding: 8px;
+    height: calc(200px - 2*8px);
+    padding-left: 16px;
+}
+
+.weekItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.curDate {
+    background-color: rgb(20, 20, 60);
+}
+
+.curDate:hover {
+    background-color: rgb(40, 40, 90);
+}
+
+.weekItemDay {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.weekItemNoteItem {
+    display: flex;
+    margin-top: 8px;
+}
+
+.weekItemNotesTypeIconDiv {
+    padding: 4px;
+    margin-right: 4px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    max-height: 32px;
+}
+
+.weekItemNotesTypeIconDiv, .weekItemNotesTypeIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.weekItemNotesTypeMiscDiv {
+    background-color: rgb(111, 185, 255);
+}
+
+.weekItemNotesTypeReminderDiv {
+    background-color: rgb(111, 255, 164);
+}
+
+.weekItemNotesTypeBirthdayDiv {
+    background-color: rgb(255, 83, 120);
+}
+
+.weekItemAdditionalNotesMessage {
+    margin-top: 8px;
+    font-size: 0.9em;
+    font-style: italic;
+}

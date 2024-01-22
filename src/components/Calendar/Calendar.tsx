@@ -11,8 +11,15 @@ export enum TimeScale {
   Week
 }
 
+const getInitWeekStartDate = () => {
+  const today = new Date();
+  const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+  return startDate;
+}
+
 function Calendar(props: any) {
   const [timeScale, setTimeScale] = useState(TimeScale.Year);
+  const [curWeekStartDate, setCurWeekStartDate] = useState(getInitWeekStartDate())
   const [curMonth, setCurMonth] = useState(new Date().getMonth());
   const [curYear, setCurYear] = useState(new Date().getFullYear());
 
@@ -38,6 +45,16 @@ function Calendar(props: any) {
     setCurMonth(newMonth);
   }
 
+  const handlePreviousWeek = () => {
+    const newStartWeekDate = new Date(curWeekStartDate.getFullYear(), curWeekStartDate.getMonth(), curWeekStartDate.getDate() - 7);
+    setCurWeekStartDate(newStartWeekDate);
+  }
+
+  const handleNextWeek = () => {
+    const newStartWeekDate = new Date(curWeekStartDate.getFullYear(), curWeekStartDate.getMonth(), curWeekStartDate.getDate() + 7);
+    setCurWeekStartDate(newStartWeekDate);
+  }
+
   return (
     <div id="calendarSection">
       <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
@@ -51,7 +68,11 @@ function Calendar(props: any) {
             handleNextMonth={handleNextMonth}
             notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
         {timeScale === TimeScale.Week && 
-          <WeekView/>}
+          <WeekView
+            curWeekStartDate={curWeekStartDate}
+            handlePreviousWeek={handlePreviousWeek} 
+            handleNextWeek={handleNextWeek}
+            notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
     </div>
   );
 }

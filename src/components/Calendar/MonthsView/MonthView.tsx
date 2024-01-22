@@ -1,8 +1,7 @@
 import React from 'react';
 import './MonthView.css';
 import MonthItem from './MonthItem/MonthItem';
-
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+import { months } from '../../../App';
 
 interface MonthItem {
   isPartOfMonth: boolean,

@@ -3,8 +3,7 @@ import './FavoriteFactsModal.css';
 import { Fact } from '../../FactDisplay/FactDisplay';
 import FavoriteFactItem from './FavoriteFactItem/FavoriteFactItem';
 import { FavoriteFact } from '../../DateDetails';
-
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+import { months } from '../../../../App';
 
 const formatFactDate = (dateCode : string) => {
   const date = dateCode.substring(0, 2);
