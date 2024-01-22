@@ -6,7 +6,17 @@
     border-radius: 16px;
     padding:16px;
     flex: 1;
+    max-height: 400px;
+    overflow-y: scroll;
+    /* Hides Scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+  
+#notesSection::-webkit-scrollbar {
+    display: none;
+}
+
 
 .notesHeader {
     font-size: 1.2em;

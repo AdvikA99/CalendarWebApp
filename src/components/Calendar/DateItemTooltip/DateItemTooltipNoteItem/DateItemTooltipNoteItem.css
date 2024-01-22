@@ -1,9 +1,9 @@
-.yearItemTooltipNoteItem {
+.dateItemTooltipNoteItem {
     display: flex;
     margin-top: 4px;
 }
 
-.yearItemTooltipNotesTypeIconDiv {
+.dateItemTooltipNotesTypeIconDiv {
     padding: 4px;
     margin-right: 8px;
     border-radius: 50%;
@@ -13,23 +13,23 @@
     max-height: 32px;
 }
 
-.yearItemTooltipNotesTypeIconDiv, .yearItemTooltipNotesTypeIcon {
+.dateItemTooltipNotesTypeIconDiv, .dateItemTooltipNotesTypeIcon {
     width: 16px;
     height: 16px;
 }
 
-.yearItemTooltipNotesTypeMiscDiv {
+.dateItemTooltipNotesTypeMiscDiv {
     background-color: rgb(111, 185, 255);
 }
 
-.yearItemTooltipNotesTypeReminderDiv {
+.dateItemTooltipNotesTypeReminderDiv {
     background-color: rgb(111, 255, 164);
 }
 
-.yearItemTooltipNotesTypeBirthdayDiv {
+.dateItemTooltipNotesTypeBirthdayDiv {
     background-color: rgb(255, 83, 120);
 }
 
-.yearItemTooltipNotesText {
+.dateItemTooltipNotesText {
     font-size: 0.9em;
 }

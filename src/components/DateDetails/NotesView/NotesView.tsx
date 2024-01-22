@@ -21,7 +21,6 @@ function NotesView(props : any) {
         ))
       }
       <NoteItem noteDate={dateCode} noteType={NoteType.Add} handleEnterPress={props.saveNewNote}></NoteItem>
-      <p className="notesHeader">Upcoming Reminders and Notes</p>
     </div>
   );
 }

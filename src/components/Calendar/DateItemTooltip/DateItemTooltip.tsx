@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './YearItemTooltip.css';
-import { dateFromDay } from '../YearItem/YearItem';
-import NoteItem from '../../../DateDetails/NotesView/NoteItem/NoteItem';
-import { Note, getFormattedDate } from '../../../../App';
-import YearItemTooltipNoteItem from '../YearItemTooltipNoteItem/YearItemTooltipNoteItem';
+import './DateItemTooltip.css';
+import { Note, getFormattedDate } from '../../../App';
+import DateItemTooltipNoteItem from './DateItemTooltipNoteItem/DateItemTooltipNoteItem';
 
-function YearItemTooltip(props : any) {
+function DateItemTooltip(props : any) {
   const tooltipParentRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const [leftPosition, setLeftPosition] = useState('50%');
@@ -57,25 +55,28 @@ function YearItemTooltip(props : any) {
                           (date.getDate() === 3 || date.getDate() === 23 ? "rd" : "th")));
 
   const dateCode = getFormattedDate(date);
+  const itemNotes = (props.notes as Note[]).filter((note) => (note.date === dateCode));
+
+  const numNotesShown = 5;
             
   return (
-    <div id="yearItemTooltipParent" ref={tooltipParentRef}>
-      <div id="yearItemTooltipChildrenContainer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div id="dateItemTooltipParent" ref={tooltipParentRef}>
+      <div id="dateItemTooltipChildrenContainer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {props.children}
       </div>
       {isTooltipVisible && (   
-        <div id="yearItemTooltipArrow" className={showOnTop ? "yearItemTooltipArrowTop" : "yearItemTooltiArrowBottom"}></div>
+        <div id="dateItemTooltipArrow" className={showOnTop ? "dateItemTooltipArrowTop" : "dateItemTooltipArrowBottom"}></div>
       )}
       {isTooltipVisible && (
         <div 
-          id="yearItemTooltip" 
+          id="dateItemTooltip" 
           ref={tooltipRef} 
           style={{left: leftPosition}}
-          className={showOnTop ? "yearItemTooltipTop" : "yearItemTooltipBottom"}>
-          <p id="yearItemTooltipHeader">{month} {date.getDate() + dateSuffix}</p>
+          className={showOnTop ? "dateItemTooltipTop" : "dateItemTooltipBottom"}>
+          <p id="dateItemTooltipHeader">{month} {date.getDate() + dateSuffix}</p>
           {
-            (props.notes as Note[]).filter((note) => (note.date === dateCode)).slice(0, 3).map((note, index) => (
-              <YearItemTooltipNoteItem
+            itemNotes.slice(0, numNotesShown).map((note, index) => (
+              <DateItemTooltipNoteItem
                 key={note.id}
                 noteDate={dateCode} 
                 noteId={note.id} 
@@ -84,8 +85,8 @@ function YearItemTooltip(props : any) {
             ))
           }
           {
-           (props.notes as Note[]).filter((note) => (note.date === dateCode)).length > 3 && (
-              <p id="yearItemTooltipAdditionalNotesMessage">+{props.notes.length - 3} more...</p>
+            itemNotes.length > numNotesShown && (
+              <p id="dateItemTooltipAdditionalNotesMessage">+{itemNotes.length - numNotesShown} more...</p>
             )
           }
         </div>
@@ -94,4 +95,4 @@ function YearItemTooltip(props : any) {
   );
 }
 
-export default YearItemTooltip;
+export default DateItemTooltip;

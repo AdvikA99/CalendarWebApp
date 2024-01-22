@@ -1,6 +1,17 @@
+.monthItemParent {
+    display: flex;
+}
+
 .monthItem {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    min-height: 120px;
+    max-height: 120px;
+    text-align: left;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.monthItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .partOfMonth {
@@ -9,4 +20,57 @@
 
 .notPartOfMonth {
     color: rgb(80, 80, 80);
+}
+
+.curDate {
+    background-color: rgb(20, 20, 60);
+}
+
+.curDate:hover {
+    background-color: rgb(40, 40, 90);
+}
+
+.monthItemDay {
+    font-weight: bold;
+}
+
+.monthItemNoteItem {
+    display: flex;
+    margin-top: 4px;
+}
+
+.monthItemNotesTypeIconDiv {
+    padding: 2px;
+    margin-right: 4px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    max-height: 32px;
+}
+
+.monthItemNotesTypeIconDiv, .monthItemNotesTypeIcon {
+    width: 10px;
+    height: 10px;
+}
+
+.monthItemNotesTypeMiscDiv {
+    background-color: rgb(111, 185, 255);
+}
+
+.monthItemNotesTypeReminderDiv {
+    background-color: rgb(111, 255, 164);
+}
+
+.monthItemNotesTypeBirthdayDiv {
+    background-color: rgb(255, 83, 120);
+}
+
+.monthItemNotesText {
+    font-size: 0.85em;
+}
+
+.monthItemAdditionalNotesMessage {
+    font-size: 0.8em;
+    font-style: italic;
 }

@@ -5,6 +5,7 @@
     min-width: 200px;
     min-height: 200px;
     width: 800px;
+    height: 800px;
     max-width: 80%;
     background-color: rgb(30, 30, 30);
     transform: translate(-50%, -50%);
@@ -64,5 +65,4 @@
 .favoriteFactModalMonthGroup {
     margin-top: 16px;
     padding-bottom: 20px;
-    border-bottom: 4px solid rgb(50, 50, 50);
 }

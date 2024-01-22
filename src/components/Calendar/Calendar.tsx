@@ -48,7 +48,8 @@ function Calendar(props: any) {
             curYear={curYear}
             curMonth={curMonth} 
             handlePreviousMonth={handlePreviousMonth} 
-            handleNextMonth={handleNextMonth}/>}
+            handleNextMonth={handleNextMonth}
+            notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
         {timeScale === TimeScale.Week && 
           <WeekView/>}
     </div>

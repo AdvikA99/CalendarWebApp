@@ -6,17 +6,19 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 interface MonthItem {
   isPartOfMonth: boolean,
+  month: number,
   date: number
 }
 
 function MonthView(props : any) {
 
   const numDaysInMonth = new Date(props.curYear, props.curMonth + 1, 0).getDate();
-  const daysInMonth = Array.from({ length: numDaysInMonth }, (_, index) => ({isPartOfMonth: true, date: index + 1}));
+  const daysInMonth = Array.from({ length: numDaysInMonth }, (_, index) => ({isPartOfMonth: true, month: props.curMonth, date: index + 1}));
   const startDay = new Date(props.curYear, props.curMonth, 1).getDay();
 
   // Create an array with empty slots for the days before the first day of the month
-  const prevMonthDays = Array.from({ length: startDay }, (_, index) => ({isPartOfMonth: false, date: new Date(props.curYear, props.curMonth, 1 - (startDay - index)).getDate()}));
+  const prevMonth = new Date(props.curYear, props.curMonth - 1).getMonth();
+  const prevMonthDays = Array.from({ length: startDay }, (_, index) => ({isPartOfMonth: false, month: prevMonth, date: new Date(props.curYear, props.curMonth, 1 - (startDay - index)).getDate()}));
   
   const monthViewDays = [...prevMonthDays, ...daysInMonth];
   // Chunk the days array into weeks (arrays of 7 days)
@@ -25,8 +27,9 @@ function MonthView(props : any) {
   );
 
   const lastRowDays = weeks[weeks.length - 1].length;
+  const nextMonth = new Date(props.curYear, props.curMonth + 1).getMonth();
   for(let i = lastRowDays, j = 1; i < 7; i++, j++) {
-    weeks[weeks.length - 1].push({isPartOfMonth: false, date: j});
+    weeks[weeks.length - 1].push({isPartOfMonth: false, month: nextMonth, date: j});
   }
   
   return (
@@ -50,7 +53,13 @@ function MonthView(props : any) {
       {weeks.map((week, weekIndex) => (
         <div key={weekIndex} className="monthRow">
           {week.map((day, dayIndex) => (
-            <MonthItem key={dayIndex} isPartOfMonth={day.isPartOfMonth} date={day.date} />
+            <MonthItem 
+              key={dayIndex} 
+              isPartOfMonth={day.isPartOfMonth} 
+              year={props.curYear} 
+              month={day.month} 
+              date={day.date}
+              notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>
           ))}
         </div>
       ))}

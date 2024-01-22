@@ -94,9 +94,9 @@ function FavoriteFactsModal(props: any) {
 
               return monthAcc;
             }, {})
-          ).map(([monthName, dateGroups]) => (
+          ).map(([monthName, dateGroups]) => (dateGroups.length > 0 &&
             <div key={monthName} className="favoriteFactModalMonthGroup">
-              <p className="favoriteFactModalHeader">{monthName}</p>
+                <p className="favoriteFactModalHeader">{monthName}</p>
               {dateGroups}
             </div>
           ))

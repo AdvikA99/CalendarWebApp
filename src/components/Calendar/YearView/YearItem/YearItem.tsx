@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './YearItem.css';
-import YearItemTooltip from '../YearItemTooltip/YearItemTooltip';
+import DateItemTooltip from '../../DateItemTooltip/DateItemTooltip';
 import Modal from '@mui/material/Modal';
 import DateModal from '../../DateModal/DateModal';
 import { Note, getFormattedDate } from '../../../../App';
@@ -30,7 +30,7 @@ function YearItem(props : any) {
 
   return (
     <div>
-      <YearItemTooltip itemDate={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote} isDateModalOpen={openDateModal}>
+      <DateItemTooltip itemDate={itemDate} notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote} isDateModalOpen={openDateModal}>
         <button 
           className={"yearItem yearItemMonth" + itemDate.getMonth() + (curDate.getMonth() === itemDate.getMonth() && curDate.getDate() == itemDate.getDate() ? " selected" : "")}
           onClick={() => {
@@ -39,7 +39,7 @@ function YearItem(props : any) {
           style={{backgroundColor: backgroundColor}}>
             {itemDate.getDate()}
         </button>
-      </YearItemTooltip>
+      </DateItemTooltip>
       <Modal
         open={openDateModal}
         onClose={handleClose}>
