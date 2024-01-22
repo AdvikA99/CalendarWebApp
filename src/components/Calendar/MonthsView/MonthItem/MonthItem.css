@@ -1,0 +1,12 @@
+.monthItem {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.partOfMonth {
+    color: white;
+}
+
+.notPartOfMonth {
+    color: rgb(80, 80, 80);
+}

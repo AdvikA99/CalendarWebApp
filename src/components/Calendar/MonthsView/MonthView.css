@@ -1,0 +1,43 @@
+#monthViewSection {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+#monthSelectorRow {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+}
+
+#currentMonthText {
+    min-width: 200px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.monthSelectorButton {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 1.4em;
+    transition-duration: 200ms;
+}
+
+.monthSelectorButton:hover {
+    color: rgb(100, 180, 255);
+}
+
+.monthRow {
+    display: flex;
+}
+
+.monthRow > * {
+    flex: 1;
+    text-align: center;
+}
+
+.monthRowHeader {
+    font-weight: bold;
+    font-variant: small-caps;
+}
