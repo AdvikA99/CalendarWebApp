@@ -34,31 +34,8 @@
     margin-top: 8px;
 }
 
-.weekItemNotesTypeIconDiv {
-    padding: 4px;
-    margin-right: 4px;
-    border-radius: 50%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    max-height: 32px;
-}
-
-.weekItemNotesTypeIconDiv, .weekItemNotesTypeIcon {
-    width: 24px;
-    height: 24px;
-}
-
-.weekItemNotesTypeMiscDiv {
-    background-color: rgb(111, 185, 255);
-}
-
-.weekItemNotesTypeReminderDiv {
-    background-color: rgb(111, 255, 164);
-}
-
-.weekItemNotesTypeBirthdayDiv {
-    background-color: rgb(255, 83, 120);
+.weekItemNotesTypeIcon {
+    margin-right: 8px;
 }
 
 .weekItemAdditionalNotesMessage {

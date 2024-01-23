@@ -4,6 +4,8 @@ import { Fact } from '../../FactDisplay/FactDisplay';
 import FavoriteFactItem from './FavoriteFactItem/FavoriteFactItem';
 import { FavoriteFact } from '../../DateDetails';
 import { months } from '../../../../App';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import { amber } from '@mui/material/colors';
 
 const formatFactDate = (dateCode : string) => {
   const date = dateCode.substring(0, 2);
@@ -50,7 +52,9 @@ function FavoriteFactsModal(props: any) {
   return (
     <div id="favoriteFactsModal">
       <div id="favoriteFactsModalHeader">
-        <img id="favoriteFactsModalIcon" src="favorite_filled_icon.png"></img>
+        <StarRateRoundedIcon 
+          id="favoriteFactsModalIcon" 
+          sx={{fontSize: 32, color: amber[500]}}/>
         <p id="favoriteFactsModalTitle">Favorite Facts</p>
       </div>
 

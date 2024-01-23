@@ -3,6 +3,10 @@ import './NoteTypeTooltip.css';
 import { NoteType } from '../../../../App';
 import { Tooltip, TooltipProps, tooltipClasses } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import NotesIcon from '@mui/icons-material/Notes';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import CakeIcon from '@mui/icons-material/Cake';
+import { lightBlue, green, pink } from '@mui/material/colors';
 
 const getNoteTypeName = (noteType : NoteType) => {
   switch (noteType) {
@@ -34,15 +38,18 @@ function NoteTypeTooltip(props: any) {
       <div>
         <p id="noteTypeTooltipName">{getNoteTypeName(props.selectedNoteType)}</p>
         <div id="noteTypeTooltipSelectionRow">
-          <div className={"notesTypeTooltipIconDiv notesTypeTooltipMiscDiv" + (props.selectedNoteType === NoteType.Misc ? " selectedNoteType" : "")}>
-            <img className="notesTypeTooltipIcon" src="NoteIcons/notes_misc_icon.png" onClick={() => props.onSelectionChange(NoteType.Misc)}></img>
-          </div>
-          <div className={"notesTypeTooltipIconDiv notesTypeTooltipReminderDiv" + (props.selectedNoteType === NoteType.Reminder ? " selectedNoteType" : "")}>
-            <img className="notesTypeTooltipIcon" src="NoteIcons/notes_reminder_icon.png" onClick={() => props.onSelectionChange(NoteType.Reminder)}></img>
-          </div>
-          <div className={"notesTypeTooltipIconDiv notesTypeTooltipBirthdayDiv" + (props.selectedNoteType === NoteType.Birthday ? " selectedNoteType" : "")}>
-            <img className="notesTypeTooltipIcon" src="NoteIcons/notes_birthday_icon.png" onClick={() => props.onSelectionChange(NoteType.Birthday)}></img>
-          </div>
+          <NotesIcon 
+            className={"notesTypeTooltipIcon" + (props.selectedNoteType === NoteType.Misc ? " selectedNoteType" : "")} 
+            sx={{fontSize: 24, color: lightBlue[500]}}
+            onClick={() => props.onSelectionChange(NoteType.Misc)}/>
+          <NotificationsActiveIcon 
+            className={"notesTypeTooltipIcon" + (props.selectedNoteType === NoteType.Reminder ? " selectedNoteType" : "")} 
+            sx={{fontSize: 24, color: green[500]}}
+            onClick={() => props.onSelectionChange(NoteType.Reminder)}/>
+          <CakeIcon 
+            className={"notesTypeTooltipIcon" + (props.selectedNoteType === NoteType.Birthday ? " selectedNoteType" : "")} 
+            sx={{fontSize: 24, color: pink[500]}}
+            onClick={() => props.onSelectionChange(NoteType.Birthday)}/>
         </div>
       </div>
     }>

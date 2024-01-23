@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './FactDisplay.css';
 import { FavoriteFact } from '../DateDetails';
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import { amber } from '@mui/material/colors';
 
 export interface Fact {
   year: string;
@@ -79,13 +83,23 @@ function FactDisplay(props : any) {
           <div id="factContainer">
             <p id="factDate"><em>On this date in <strong>{factList[curFactInd].year}</strong>,</em></p>
             <div id="factRow">
-              <img 
+              {!factFavorited && 
+                <StarBorderRoundedIcon 
                 id="factFavorite" 
-                src={"favorite_" + (factFavorited ? "filled" : "outline") + "_icon.png"} 
-                onClick={() => handleToggleFavoriteFact()}
-                className={(factFavorited ? "factFavorited" : "factUnfavorited")}></img>
+                sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}}
+                onClick={() => handleToggleFavoriteFact()}/>
+              }
+              {factFavorited && 
+                <StarRateRoundedIcon 
+                id="factFavorite" 
+                sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}}
+                onClick={() => handleToggleFavoriteFact()}/>
+              }
               <p id="fact">{factList[curFactInd].fact}</p>
-              <img id="factRefresh" src="refresh_icon.png" onClick={() => setRandomCurFactInd()}></img>
+              <RefreshRoundedIcon 
+                id="factRefresh" 
+                sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}}
+                onClick={() => setRandomCurFactInd()}/>
             </div>
           </div>
         )

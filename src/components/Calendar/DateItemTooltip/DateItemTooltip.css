@@ -55,4 +55,6 @@
 #dateItemTooltipAdditionalNotesMessage {
     font-size: 0.9em;
     font-style: italic;
+    text-align: left;
+    margin-top: 4px;
 }

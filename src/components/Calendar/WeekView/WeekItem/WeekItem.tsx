@@ -4,6 +4,10 @@ import { Note, NoteType, getFormattedDate } from '../../../../App';
 import Modal from '@mui/material/Modal';
 import DateItemTooltip from '../../DateItemTooltip/DateItemTooltip';
 import DateModal from '../../DateModal/DateModal';
+import NotesIcon from '@mui/icons-material/Notes';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import CakeIcon from '@mui/icons-material/Cake';
+import { lightBlue, green, pink } from '@mui/material/colors';
 
 function WeekItem(props : any) {
   const [openDateModal, setOpenDateModal] = useState(false);
@@ -31,13 +35,9 @@ function WeekItem(props : any) {
           {
             itemsNotes.slice(0, 3).map((note) => (
               <div className="weekItemNoteItem">
-                <div className={"weekItemNotesTypeIconDiv " + (note.type === NoteType.Misc ? "weekItemNotesTypeMiscDiv" : 
-                                                            (note.type === NoteType.Reminder ? "weekItemNotesTypeReminderDiv" : "weekItemNotesTypeBirthdayDiv"))}>
-                  <img 
-                    className={"weekItemNotesTypeIcon"}
-                    src={"NoteIcons/notes_" + (note.type === NoteType.Misc ? "misc" : 
-                      (note.type === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
-                </div>
+                {note.type === NoteType.Misc && <NotesIcon className="weekItemNotesTypeIcon" sx={{fontSize: 24, color: lightBlue[500]}}/>}
+                {note.type === NoteType.Reminder && <NotificationsActiveIcon className="weekItemNotesTypeIcon" sx={{fontSize: 24, color: green[500]}}/>}
+                {note.type === NoteType.Birthday && <CakeIcon className="weekItemNotesTypeIcon" sx={{fontSize: 24, color: pink[500]}}/>}
                 <p className="weekItemNotesText">{note.text.length > characterLimit ? `${note.text.slice(0, characterLimit)}...` : note.text}</p>
               </div>
             ))

@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import './DateModalAddNoteItem.css';
 import { NoteType } from '../../../../App';
 import NoteTypeTooltip from '../../../DateDetails/NotesView/NoteTypeTooltip/NoteTypeTooltip';
-import { Popover } from '@mui/material';
+import NotesIcon from '@mui/icons-material/Notes';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import CakeIcon from '@mui/icons-material/Cake';
+import { lightBlue, green, pink } from '@mui/material/colors';
 
 function DateModalAddNoteItem(props: any) {
   const [addNoteValue, setAddNoteValue] = useState("");
   const [addNoteType, setAddNoteType] = useState(NoteType.Misc);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
-  const initNoteType = props.noteType === NoteType.Add ? NoteType.Misc : props.noteType;
 
   useEffect(() => {
     if (textAreaRef.current) {
@@ -49,13 +50,9 @@ function DateModalAddNoteItem(props: any) {
   return (
     <div id="dateModalAddNoteItem">
       <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange}>
-        <div className={"dateModalNotesTypeIconDiv " + (addNoteType === NoteType.Misc ? "dateModalNotesTypeMiscDiv" : 
-                                                    (addNoteType === NoteType.Reminder ? "dateModalNotesTypeReminderDiv" : "dateModalNotesTypeBirthdayDiv"))}>
-          <img 
-            className={"dateModalNotesTypeIcon"}
-            src={"NoteIcons/notes_" + (addNoteType === NoteType.Misc ? "misc" : 
-              (addNoteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
-        </div>
+        {addNoteType === NoteType.Misc && <NotesIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: lightBlue[500], "&:hover": {color: "white"}}}/>}
+        {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: green[500], "&:hover": {color: "white"}}}/>}
+        {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: pink[500], "&:hover": {color: "white"}}}/>}
       </NoteTypeTooltip>
       <textarea 
         id="addNoteTextArea" 

@@ -15,28 +15,14 @@
 
 .selectable {
     cursor: pointer;
-    border: 2px solid white;
+    outline: 2px solid currentColor;
+    border-radius: 50%;
+    transition-duration: 200ms;
 }
 
-.selectable:hover {
-    transform: scale(1.05);
-}
-
-.notesTypeIconDiv, .notesTypeIcon {
-    width: 24px;
-    height: 24px;
-}
-
-.notesTypeMiscDiv {
-    background-color: rgb(111, 185, 255);
-}
-
-.notesTypeReminderDiv {
-    background-color: rgb(111, 255, 164);
-}
-
-.notesTypeBirthdayDiv {
-    background-color: rgb(255, 83, 120);
+.notesTypeIcon {
+    margin-right: 8px;
+    padding: 4px;
 }
 
 #addNoteTextArea {
@@ -63,15 +49,19 @@
 }
 
 .deleteNoteButton {
-    max-height: 32px;
-    width: 32px;
-    background-color: red;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
     color: white;
+    border: 2px solid currentColor;
     border-radius: 50%;
-    border-style: solid;
-    border: 1px solid white;
+    font-weight: bolder;
+    transition-duration: 200ms;
+    font-size: 0.65em;
+    padding-bottom: 2px;
 }
 
 .deleteNoteButton:hover {
-    background-color: rgb(200, 0, 0);
+    background-color: rgb(255, 95, 95);
 }

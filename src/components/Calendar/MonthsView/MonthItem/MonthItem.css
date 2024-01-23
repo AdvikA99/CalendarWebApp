@@ -39,31 +39,8 @@
     margin-top: 4px;
 }
 
-.monthItemNotesTypeIconDiv {
-    padding: 2px;
-    margin-right: 4px;
-    border-radius: 50%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    max-height: 32px;
-}
-
-.monthItemNotesTypeIconDiv, .monthItemNotesTypeIcon {
-    width: 10px;
-    height: 10px;
-}
-
-.monthItemNotesTypeMiscDiv {
-    background-color: rgb(111, 185, 255);
-}
-
-.monthItemNotesTypeReminderDiv {
-    background-color: rgb(111, 255, 164);
-}
-
-.monthItemNotesTypeBirthdayDiv {
-    background-color: rgb(255, 83, 120);
+.monthItemNotesTypeIcon {
+    margin-right:3px;
 }
 
 .monthItemNotesText {

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './DateDetailsHeader.css';
 import Modal from '@mui/material/Modal';
 import FavoriteFactsModal from './FavoriteFactsModal/FavoriteFactsModal';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import { amber } from '@mui/material/colors';
 
 function DateDetailsHeader(props: any) {
   
@@ -12,7 +14,10 @@ function DateDetailsHeader(props: any) {
 
   return (
     <div id="dateDetailsHeader">
-      <img id="favoriteFactsModalButton" src="favorite_filled_icon.png" onClick={handleOpen}></img>
+      <StarRateRoundedIcon 
+        id="favoriteFactsModalButton" 
+        sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}} 
+        onClick={handleOpen}/>
       <Modal
         open={openFavoriteFactsModal}
         onClose={handleClose}>

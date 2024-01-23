@@ -1,6 +1,6 @@
 #noteTypeTooltipName {
     text-align: center;
-    margin-bottom: 4px;
+    margin-top: 4px;
     font-size: 1.4em;
 }
 
@@ -8,38 +8,15 @@
     display: flex;
 }
 
-.notesTypeTooltipIconDiv {
-    padding: 4px;
-    margin-right: 8px;
-    border-radius: 50%;
-    border: 2px solid black;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    max-height: 32px;
-}
-
-.notesTypeTooltipIconDiv:hover {
-    transform: scale(1.05);
-}
-
 .notesTypeTooltipIcon {
     width: 24px;
     height: 24px;
-}
-
-.notesTypeTooltipMiscDiv {
-    background-color: rgb(111, 185, 255);
-}
-
-.notesTypeTooltipReminderDiv {
-    background-color: rgb(111, 255, 164);
-}
-
-.notesTypeTooltipBirthdayDiv {
-    background-color: rgb(255, 83, 120);
+    padding: 4px;
+    margin: 4px;
+    cursor: pointer;
+    transition-duration: 200ms;
 }
 
 .selectedNoteType {
-    border-color: white !important;
+    border-bottom: 2px solid currentColor;
 }

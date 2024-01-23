@@ -3,31 +3,8 @@
     margin-top: 4px;
 }
 
-.dateItemTooltipNotesTypeIconDiv {
-    padding: 4px;
+.dateItemTooltipNotesTypeIcon {
     margin-right: 8px;
-    border-radius: 50%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    max-height: 32px;
-}
-
-.dateItemTooltipNotesTypeIconDiv, .dateItemTooltipNotesTypeIcon {
-    width: 16px;
-    height: 16px;
-}
-
-.dateItemTooltipNotesTypeMiscDiv {
-    background-color: rgb(111, 185, 255);
-}
-
-.dateItemTooltipNotesTypeReminderDiv {
-    background-color: rgb(111, 255, 164);
-}
-
-.dateItemTooltipNotesTypeBirthdayDiv {
-    background-color: rgb(255, 83, 120);
 }
 
 .dateItemTooltipNotesText {

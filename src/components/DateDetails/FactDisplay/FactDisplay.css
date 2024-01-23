@@ -19,32 +19,14 @@
     justify-content: center;
 }
 
-#factFavorite, #factRefresh {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 50%;
-    transition-duration: 200ms;
-}
-
-#factFavorite:hover, #factRefresh:hover {
-    transform: scale(1.1);
-}
-
 #factFavorite {
     margin-right: 8px;
 }
 
-.factUnfavorited {
-    outline: 1px solid gold;
-}
-
-.factFavorited {
-    background-color: gold;
-}
-
 #factRefresh {
-    background-color: rgb(126, 223, 255);
     margin-left: 8px;
+}
+
+#factFavorite, #factRefresh {
+    cursor: pointer;
 }

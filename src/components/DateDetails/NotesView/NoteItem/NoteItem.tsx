@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import './NoteItem.css';
 import NoteTypeTooltip from '../NoteTypeTooltip/NoteTypeTooltip';
 import { NoteType } from '../../../../App';
+import NotesIcon from '@mui/icons-material/Notes';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import CakeIcon from '@mui/icons-material/Cake';
+import { lightBlue, green, pink } from '@mui/material/colors';
 
 function NoteItem(props : any) {
 
@@ -51,13 +55,9 @@ function NoteItem(props : any) {
       {props.noteType === NoteType.Add && (
         <div className="noteItem">
           <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange} tooltipDirection="above">
-            <div className={"selectable notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
-                                                    (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
-              <img 
-                className={"notesTypeIcon"}
-                src={"NoteIcons/notes_" + (addNoteType === NoteType.Misc ? "misc" : 
-                  (addNoteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
-            </div>
+            {addNoteType === NoteType.Misc && <NotesIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: lightBlue[500], "&:hover": {color: "white"}}}/>}
+            {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: green[500], "&:hover": {color: "white"}}}/>}
+            {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: pink[500], "&:hover": {color: "white"}}}/>}
           </NoteTypeTooltip>
           <textarea 
             id="addNoteTextArea" 
@@ -70,15 +70,11 @@ function NoteItem(props : any) {
       )}
       {props.noteType !== NoteType.Add && (
         <div className="noteItem">
-          <div className={"notesTypeIconDiv " + (addNoteType === NoteType.Misc ? "notesTypeMiscDiv" : 
-                                                  (addNoteType === NoteType.Reminder ? "notesTypeReminderDiv" : "notesTypeBirthdayDiv"))}>
-            <img 
-              className={"notesTypeIcon"}
-              src={"NoteIcons/notes_" + (props.noteType === NoteType.Misc ? "misc" : 
-                (props.noteType === NoteType.Reminder ? "reminder" : "birthday")) + "_icon.png"}></img>
-          </div>
+          {addNoteType === NoteType.Misc && <NotesIcon className="notesTypeIcon" sx={{fontSize: 24, color: lightBlue[500]}}/>}
+          {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon" sx={{fontSize: 24, color: green[500]}}/>}
+          {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon" sx={{fontSize: 24, color: pink[500]}}/>}
           <p className="noteText">{props.noteText}</p>
-          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteId)}>X</button>
+          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteId)}>✖</button>
         </div>
       )}
     </div>
