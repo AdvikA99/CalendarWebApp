@@ -11,23 +11,7 @@
 }
 
 .monthItem:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.partOfMonth {
-    color: white;
-}
-
-.notPartOfMonth {
-    color: rgb(80, 80, 80);
-}
-
-.curDate {
-    background-color: rgb(20, 20, 60);
-}
-
-.curDate:hover {
-    background-color: rgb(40, 40, 90);
+    outline: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .monthItemDay {

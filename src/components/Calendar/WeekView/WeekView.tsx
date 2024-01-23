@@ -2,10 +2,14 @@ import React from 'react';
 import './WeekView.css';
 import { months } from '../../../App';
 import WeekItem from './WeekItem/WeekItem';
+import { Button, ButtonProps, styled, useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 const dayHeaders = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function WeekView(props : any) {
+  const theme = useTheme();
+
   const getDateOffset = (offset : number) => {
     if (offset === 0) {
       return props.curWeekStartDate;
@@ -22,18 +26,27 @@ function WeekView(props : any) {
     }
   }
 
+  const WeekSelectorButton = styled(Button)<ButtonProps>(() => ({
+    fontSize: "1.4em",
+    fontWeight: "bold",
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      color: theme.palette.secondary.light,
+    }
+  }));
+
   return (
-    <div id="weekViewSection">
+    <Box id="weekViewSection" sx={{color: theme.palette.primary.contrastText}}>
       <div id="weekSelectorRow">
-        <button className="weekSelectorButton" onClick={props.handlePreviousWeek}>ᐊ</button>
+        <WeekSelectorButton className="weekSelectorButton" onClick={props.handlePreviousWeek}>ᐊ</WeekSelectorButton>
         <p id="currentMonthText">{getHeader()}</p>
-        <button className="weekSelectorButton" onClick={props.handleNextWeek}>ᐅ</button>
+        <WeekSelectorButton className="weekSelectorButton" onClick={props.handleNextWeek}>ᐅ</WeekSelectorButton>
       </div>
 
       {
         dayHeaders.map((day, index) => (
-          <div className="weekRow">
-            <p className="weekDayHeader">{day}</p>
+          <div className="weekRow" key={day}>
+            <p className="weekDayHeader" style={{backgroundColor: theme.palette.secondary.main, color: theme.palette.secondary.contrastText}}>{day}</p>
             <WeekItem
               date={getDateOffset(index)}
               notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}>
@@ -41,7 +54,7 @@ function WeekView(props : any) {
           </div>
         ))
       }
-    </div>
+    </Box>
   );
 }
 

@@ -2,6 +2,8 @@ import React from 'react';
 import './MonthView.css';
 import MonthItem from './MonthItem/MonthItem';
 import { months } from '../../../App';
+import { Button, ButtonProps, styled, useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 interface MonthItem {
   isPartOfMonth: boolean,
@@ -10,6 +12,7 @@ interface MonthItem {
 }
 
 function MonthView(props : any) {
+  const theme = useTheme();
 
   const numDaysInMonth = new Date(props.curYear, props.curMonth + 1, 0).getDate();
   const daysInMonth = Array.from({ length: numDaysInMonth }, (_, index) => ({isPartOfMonth: true, month: props.curMonth, date: index + 1}));
@@ -30,13 +33,22 @@ function MonthView(props : any) {
   for(let i = lastRowDays, j = 1; i < 7; i++, j++) {
     weeks[weeks.length - 1].push({isPartOfMonth: false, month: nextMonth, date: j});
   }
+
+  const MonthSelectorButton = styled(Button)<ButtonProps>(() => ({
+    fontSize: "1.4em",
+    fontWeight: "bold",
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      color: theme.palette.secondary.light,
+    },
+  }));
   
   return (
-    <div id="monthViewSection">
+    <Box id="monthViewSection" sx={{color: theme.palette.primary.contrastText}}>
       <div id="monthSelectorRow">
-        <button className="monthSelectorButton" onClick={props.handlePreviousMonth}>ᐊ</button>
+        <MonthSelectorButton className="monthSelectorButton" onClick={props.handlePreviousMonth}>ᐊ</MonthSelectorButton>
         <p id="currentMonthText">{months[props.curMonth] + " " + props.curYear}</p>
-        <button className="monthSelectorButton" onClick={props.handleNextMonth}>ᐅ</button>
+        <MonthSelectorButton className="monthSelectorButton" onClick={props.handleNextMonth}>ᐅ</MonthSelectorButton>
       </div>
 
       <div className="monthRow"> 
@@ -62,7 +74,7 @@ function MonthView(props : any) {
           ))}
         </div>
       ))}
-    </div>
+    </Box>
   );
 }
 

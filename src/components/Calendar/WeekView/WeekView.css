@@ -1,7 +1,6 @@
 #weekViewSection {
     display: flex;
     flex-direction: column;
-    color: white;
 }
 
 #weekSelectorRow {
@@ -11,29 +10,21 @@
 }
 
 .weekSelectorButton {
-    color: white;
     background-color: transparent;
     border: none;
-    font-size: 1.4em;
-    transition-duration: 200ms;
-}
-
-.weekSelectorButton:hover {
-    color: rgb(100, 180, 255);
 }
 
 .weekRow {
     display: flex;
-    border-bottom: 1px solid rgb(80, 80, 80);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
     height: 200px;
 }
 
 .weekRow:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .weekDayHeader {
-    background-color: rgb(0, 0, 30);
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-variant: small-caps;
@@ -42,5 +33,5 @@
     text-align: center;
     padding-left: 8px;
     padding-right: 8px;
-    border-right: 1px solid rgb(80, 80, 80);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
 }

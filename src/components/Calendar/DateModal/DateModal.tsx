@@ -3,9 +3,12 @@ import './DateModal.css';
 import { Note, getFormattedDate } from '../../../App';
 import DateModalNoteItem from './DateModalNoteItem/DateModalNoteItem';
 import DateModalAddNoteItem from './DateModalAddNoteItem/DateModalAddNoteItem';
+import { useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 function DateModal(props: any) {
-  
+  const theme = useTheme();
+
   const date = props.date;
   const month = date.toLocaleString('default', { month: 'long' });
   const dateSuffix = (date.getDate() === 1 || date.getDate() === 21 || date.getDate() === 31 ? "st" :
@@ -15,7 +18,7 @@ function DateModal(props: any) {
   const dateCode = getFormattedDate(date);
 
   return (
-    <div id="dateModal">
+    <Box id="dateModal" sx={{backgroundColor: theme.palette.primary.light, color: theme.palette.primary.contrastText}}>
       <p id="dateModalHeader">{month} {date.getDate() + dateSuffix}</p>
       <p id="dateModalSubheader">Reminders and Notes</p>
       {
@@ -30,7 +33,7 @@ function DateModal(props: any) {
         ))
       }
       <DateModalAddNoteItem noteDate={dateCode} handleEnterPress={props.saveNewNote}/>
-    </div>
+    </Box>
   );
 }
 

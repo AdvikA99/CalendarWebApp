@@ -6,6 +6,7 @@
 }
 
  .dateModalNotesTypeIcon {
+    margin-left: 8px;
     margin-right: 8px;
  }
  
@@ -20,6 +21,7 @@
 }
 
 .dateModalNotesDeleteButton {
+    margin-left: 8px;
     margin-right: 8px;
     width: 24px;
     height: 24px;

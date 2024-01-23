@@ -23,7 +23,7 @@ function DateDetails(props : any) {
 
   return (
     <Box id="detailsSection" sx={{color: theme.palette.primary.contrastText, backgroundColor: theme.palette.primary.light}}>
-      <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts} toggleDarkMode={props.toggleDarkMode}></DateDetailsHeader>
+      <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts} darkMode={props.darkMode} toggleDarkMode={props.toggleDarkMode}></DateDetailsHeader>
       <DateTimeDisplay></DateTimeDisplay>
       <FactDisplay favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></FactDisplay>
       <NotesView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}></NotesView>

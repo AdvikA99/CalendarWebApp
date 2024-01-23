@@ -1,7 +1,6 @@
 #monthViewSection {
     display: flex;
     flex-direction: column;
-    color: white;
 }
 
 #monthSelectorRow {
@@ -14,18 +13,13 @@
     min-width: 200px;
     text-align: center;
     font-size: 1.2em;
+    padding-top:8px;
+    font-weight: bold;
 }
 
 .monthSelectorButton {
-    color: white;
     background-color: transparent;
     border: none;
-    font-size: 1.4em;
-    transition-duration: 200ms;
-}
-
-.monthSelectorButton:hover {
-    color: rgb(100, 180, 255);
 }
 
 .monthRow {

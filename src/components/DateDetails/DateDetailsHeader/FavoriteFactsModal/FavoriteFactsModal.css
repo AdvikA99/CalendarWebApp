@@ -7,11 +7,9 @@
     width: 800px;
     height: 800px;
     max-width: 80%;
-    background-color: rgb(30, 30, 30);
     transform: translate(-50%, -50%);
     box-shadow: 24px;
     border-radius: 16px;
-    color: white;
     padding: 16px;
     max-height: 80%;
     overflow-y: scroll;
@@ -27,6 +25,7 @@
 
 #favoriteFactsModalHeader {
     display: flex;
+    align-items: center;
 }
 
 #favoriteFactsModalIcon {
@@ -34,9 +33,10 @@
 }
 
 #favoriteFactsModalTitle {
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: bold;
     font-variant: small-caps;
+    color: rgb(100, 180, 255);
 }
 
 #favoriteFactsList {

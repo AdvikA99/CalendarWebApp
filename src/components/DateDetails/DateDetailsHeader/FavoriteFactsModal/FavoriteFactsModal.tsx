@@ -6,6 +6,8 @@ import { FavoriteFact } from '../../DateDetails';
 import { months } from '../../../../App';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import { amber } from '@mui/material/colors';
+import { useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 const formatFactDate = (dateCode : string) => {
   const date = dateCode.substring(0, 2);
@@ -26,6 +28,8 @@ const shortenMonthName = (monthInd : number) => {
 }
 
 function FavoriteFactsModal(props: any) {
+  const theme = useTheme();
+
   const [allFacts, setAllFacts] = useState<{[key: string]: Fact[]}>({});
   
   useEffect(() => {
@@ -50,7 +54,7 @@ function FavoriteFactsModal(props: any) {
   };
 
   return (
-    <div id="favoriteFactsModal">
+    <Box id="favoriteFactsModal" sx={{color: theme.palette.primary.contrastText, backgroundColor: theme.palette.primary.light}}>
       <div id="favoriteFactsModalHeader">
         <StarRateRoundedIcon 
           id="favoriteFactsModalIcon" 
@@ -106,7 +110,7 @@ function FavoriteFactsModal(props: any) {
         }
 
       </div>
-    </div>
+    </Box>
   );
 }
 

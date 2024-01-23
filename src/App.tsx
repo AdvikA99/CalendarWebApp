@@ -133,7 +133,7 @@ function App() {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <div id="app">
         <Calendar notes={notes} saveNewNote={saveNewNote} deleteNote={deleteNote}></Calendar>
-        <DateDetails notes={notes} saveNewNote={saveNewNote} deleteNote={deleteNote} toggleDarkMode={toggleDarkMode}></DateDetails>
+        <DateDetails notes={notes} saveNewNote={saveNewNote} deleteNote={deleteNote} darkMode={isDarkMode} toggleDarkMode={toggleDarkMode}></DateDetails>
       </div>
     </ThemeProvider>
   );
