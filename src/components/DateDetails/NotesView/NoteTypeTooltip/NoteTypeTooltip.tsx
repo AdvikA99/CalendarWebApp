@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NoteTypeTooltip.css';
 import { NoteType } from '../../../../App';
-import { Tooltip, TooltipProps, tooltipClasses } from '@mui/material';
+import { Tooltip, TooltipProps, tooltipClasses, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import NotesIcon from '@mui/icons-material/Notes';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
@@ -21,18 +21,21 @@ const getNoteTypeName = (noteType : NoteType) => {
   }
 }
 
-const CustomStyledTooltip = styled(({ className, ...props }: TooltipProps) => (
-  <Tooltip {...props} arrow classes={{ popper: className }} />
-))(() => ({
-  [`& .${tooltipClasses.arrow}`]: {
-    color: "rgb(30, 30, 80)"
-  },
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: "rgb(30, 30, 80)"
-  },
-}));
 
 function NoteTypeTooltip(props: any) {
+  const theme = useTheme();
+
+  const CustomStyledTooltip = styled(({ className, ...props }: TooltipProps) => (
+    <Tooltip {...props} arrow classes={{ popper: className }} />
+  ))(() => ({
+    [`& .${tooltipClasses.arrow}`]: {
+      color: theme.palette.secondary.dark
+    },
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.secondary.dark
+    },
+  }));
+
   return (
     <CustomStyledTooltip enterDelay={0} arrow placement="top" title={
       <div>

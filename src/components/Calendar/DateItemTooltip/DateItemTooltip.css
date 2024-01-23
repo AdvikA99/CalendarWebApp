@@ -1,6 +1,4 @@
 #dateItemTooltipParent {
-    --tooltip-color: rgb(30, 30, 80);
-
     position: relative;
     display: inline-block;
     width: 100%;
@@ -12,8 +10,6 @@
 
 #dateItemTooltip {
     position: absolute;
-    background-color: var(--tooltip-color);
-    color: white;
     padding: 8px;
     z-index: 1000;
     border-radius: 16px;
@@ -21,11 +17,11 @@
 }
 
 .dateItemTooltipTop {
-    bottom: calc(100% + 8px);
+    bottom: calc(100% + 4px);
 }
 
 .dateItemTooltipBottom {
-    top: calc(100% + 12px);
+    top: calc(100% + 6px);
 }
 
 .dateItemTooltipArrowTop {
@@ -40,7 +36,6 @@
     position: absolute;
     width: 16px;
     height: 16px;
-    background-color: var(--tooltip-color);
     transform-origin: 0 0;
     transform: rotate(45deg);
     left: 50%;
@@ -49,7 +44,7 @@
 
 #dateItemTooltipHeader {
     font-weight: bold;
-    font-variant: small-caps;
+    text-align: center;
 }
 
 #dateItemTooltipAdditionalNotesMessage {

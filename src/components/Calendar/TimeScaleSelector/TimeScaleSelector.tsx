@@ -13,26 +13,26 @@ function TimeScaleSelector(props : any) {
   };
 
   const YearTimeSelectorButton = styled(Button)<ButtonProps>(() => ({
-    color: theme.palette.primary.contrastText,
-    backgroundColor: props.curTimeScale === TimeScale.Year ? theme.palette.secondary.dark : "transparent",
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: props.curTimeScale === TimeScale.Year ? theme.palette.secondary.main : "transparent",
     '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     }
   }));
 
   const MonthTimeSelectorButton = styled(Button)<ButtonProps>(() => ({
-    color: theme.palette.primary.contrastText,
-    backgroundColor: props.curTimeScale === TimeScale.Month ? theme.palette.secondary.dark : "transparent",
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: props.curTimeScale === TimeScale.Month ? theme.palette.secondary.main : "transparent",
     '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     }
   }));
 
   const WeekTimeSelectorButton = styled(Button)<ButtonProps>(() => ({
-    color: theme.palette.primary.contrastText,
-    backgroundColor: props.curTimeScale === TimeScale.Week ? theme.palette.secondary.dark : "transparent",
+    color: theme.palette.secondary.contrastText,
+    backgroundColor: props.curTimeScale === TimeScale.Week ? theme.palette.secondary.main : "transparent",
     '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.secondary.light,
     }
   }));
 

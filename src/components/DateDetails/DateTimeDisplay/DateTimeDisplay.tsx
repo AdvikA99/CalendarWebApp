@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './DateTimeDisplay.css';
+import { useTheme } from '@mui/material';
 
 function getCurrentTimeText() {
   const now = new Date();
@@ -18,6 +19,8 @@ function getCurrentDateText() {
 }
 
 function DateTimeDisplay() {
+  const theme = useTheme();
+
   const [currentTime, setCurrentTime] = useState(getCurrentTimeText());
   const [currentDate, setCurrentDate] = useState(getCurrentDateText());
   
@@ -41,7 +44,7 @@ function DateTimeDisplay() {
 
   return (
     <div>
-      <p id="timeDisplay">{currentTime}</p>
+      <p id="timeDisplay" style={{color: theme.palette.primary.contrastText}}>{currentTime}</p>
       <p id="dateDisplay">{currentDate}</p>
     </div>
   );

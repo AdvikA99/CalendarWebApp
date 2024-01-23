@@ -6,6 +6,30 @@ import { v4 as uuid } from 'uuid';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    yearColors: {
+      color0A: string;
+      color0B: string,
+      color1A: string,
+      color1B: string,
+      color2A: string,
+      color2B: string,
+    };
+  }
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    yearColors?: {
+      color0A?: string;
+      color0B?: string,
+      color1A?: string,
+      color1B?: string,
+      color2A?: string,
+      color2B?: string,
+    };
+  }
+}
+
 export enum NoteType {
   Add,
   Misc,
@@ -58,30 +82,50 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        light: "#1f1f1f",
+        light: "#181818",
         main: "#0f0f0f",
         dark: "#000000",
         contrastText: "#f0f0f0"
       },
       secondary: {
-        light: "#aaaaff",
+        light: "#204ab0",
         main: "#102f80",
-        dark: "#1a1a60"
+        dark: "#202060",
+        contrastText: "#f0f0f0"
       }
+    },
+    yearColors: {
+      color0A: "#4040a0",
+      color0B: "#1f1f4f",
+      color1A: "#40a080",
+      color1B: "#206040",
+      color2A: "#8040a0",
+      color2B: "#402060",
     }
   });
 
   const lightTheme = createTheme({
     palette: {
       primary: {
+        light: "#ffe0b0",
         main: "#eccca2",
+        dark: "#cfaf8f",
         contrastText: "#4f4f4f"
       },
       secondary: {
         light: "#f0f0f0",
         main: "#d0d0d0",
-        dark: "#b0b0b0"
+        dark: "#4f4f4f",
+        contrastText: "#0f0f0f"
       }
+    },
+    yearColors: {
+      color0A: "#60a0f0",
+      color0B: "#80d0ff",
+      color1A: "#40a080",
+      color1B: "#80d0a0",
+      color2A: "#a080d0",
+      color2B: "#d0a0f0",
     }
   });
 

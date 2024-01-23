@@ -4,6 +4,8 @@
     text-align: center;
     align-items: center;
     font-size: 11em;
+    font-family: "Zyzol";
+    margin-top: 24px;
 }
 
 #dateDisplay {

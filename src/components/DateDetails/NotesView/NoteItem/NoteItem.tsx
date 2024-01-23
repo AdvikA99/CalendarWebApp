@@ -6,8 +6,10 @@ import NotesIcon from '@mui/icons-material/Notes';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import CakeIcon from '@mui/icons-material/Cake';
 import { lightBlue, green, pink } from '@mui/material/colors';
+import { useTheme } from '@mui/material';
 
 function NoteItem(props : any) {
+  const theme = useTheme();
 
   const [addNoteValue, setAddNoteValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -76,7 +78,7 @@ function NoteItem(props : any) {
           {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon" sx={{fontSize: 24, color: green[500]}}/>}
           {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon" sx={{fontSize: 24, color: pink[500]}}/>}
           <p className="noteText">{props.noteText}</p>
-          <button className="deleteNoteButton" onClick={() => props.handleDelete(props.noteId)}>✖</button>
+          <button className="deleteNoteButton"style={{color: theme.palette.primary.contrastText}}  onClick={() => props.handleDelete(props.noteId)}>✖</button>
         </div>
       )}
     </div>

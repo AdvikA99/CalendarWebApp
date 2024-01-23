@@ -4,16 +4,18 @@ import Modal from '@mui/material/Modal';
 import FavoriteFactsModal from './FavoriteFactsModal/FavoriteFactsModal';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import { amber } from '@mui/material/colors';
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/system';
 
 function DateDetailsHeader(props: any) {
+  const theme = useTheme();
   
   const [openFavoriteFactsModal, setOpenFavoriteFactsModal] = useState(false);
   const handleOpen = () => setOpenFavoriteFactsModal(true);
   const handleClose = () => setOpenFavoriteFactsModal(false);
 
-
   return (
-    <div id="dateDetailsHeader">
+    <Box id="dateDetailsHeader" sx={{backgroundColor: theme.palette.primary.dark}}>
       <StarRateRoundedIcon 
         id="favoriteFactsModalButton" 
         sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}} 
@@ -24,7 +26,7 @@ function DateDetailsHeader(props: any) {
         onClose={handleClose}>
           <div><FavoriteFactsModal favoriteFacts={props.favoriteFacts} setFavoriteFacts={props.setFavoriteFacts}/></div>
       </Modal>
-    </div>
+    </Box>
   );
 }
 

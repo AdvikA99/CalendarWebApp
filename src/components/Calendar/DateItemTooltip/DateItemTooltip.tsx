@@ -2,8 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import './DateItemTooltip.css';
 import { Note, getFormattedDate } from '../../../App';
 import DateItemTooltipNoteItem from './DateItemTooltipNoteItem/DateItemTooltipNoteItem';
+import { useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 function DateItemTooltip(props : any) {
+  const theme = useTheme();
+
   const tooltipParentRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const [leftPosition, setLeftPosition] = useState('50%');
@@ -65,13 +69,16 @@ function DateItemTooltip(props : any) {
         {props.children}
       </div>
       {isTooltipVisible && (   
-        <div id="dateItemTooltipArrow" className={showOnTop ? "dateItemTooltipArrowTop" : "dateItemTooltipArrowBottom"}></div>
+        <Box 
+          id="dateItemTooltipArrow" 
+          className={showOnTop ? "dateItemTooltipArrowTop" : "dateItemTooltipArrowBottom"} 
+          sx={{backgroundColor: theme.palette.secondary.dark}}></Box>
       )}
       {isTooltipVisible && (
-        <div 
+        <Box 
           id="dateItemTooltip" 
           ref={tooltipRef} 
-          style={{left: leftPosition}}
+          sx={{left: leftPosition, backgroundColor: theme.palette.secondary.dark, color: "#f0f0f0"}}
           className={showOnTop ? "dateItemTooltipTop" : "dateItemTooltipBottom"}>
           <p id="dateItemTooltipHeader">{month} {date.getDate() + dateSuffix}</p>
           {
@@ -89,7 +96,7 @@ function DateItemTooltip(props : any) {
               <p id="dateItemTooltipAdditionalNotesMessage">+{itemNotes.length - numNotesShown} more...</p>
             )
           }
-        </div>
+        </Box>
       )}
     </div>
   );

@@ -1,45 +1,19 @@
 .yearItem {
-    --year-item-size: 32px;
-    --year-item-color-0A: rgb(120, 255, 225);
-    --year-item-color-0B: rgba(120, 255, 225, 0.4);
-    --year-item-color-1A: rgb(80, 160, 250);
-    --year-item-color-1B: rgba(80, 160, 250, 0.4);
-    --year-item-color-2A: rgb(225, 120, 255);
-    --year-item-color-2B: rgba(225, 120, 255, 0.4);
+    --year-item-size: 36px;
 
     min-width: var(--year-item-size);
     min-height: var(--year-item-size);
     max-width: var(--year-item-size);
     max-height: var(--year-item-size);
     margin: 4px;
-    color: white;
-    background-color: transparent;
     border-radius: 50%;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     font-size: 12px;
     font-weight: bolder;
+    text-align: center;
 }
 
-.selected {
-    background-color: white !important;
-    color: black;
-}
-
-.yearItemMonth0, .yearItemMonth3, .yearItemMonth6, .yearItemMonth9 {
-    border-color: var(--year-item-color-0A);
-}
-
-.yearItemMonth1, .yearItemMonth4, .yearItemMonth7, .yearItemMonth10 {
-    border-color: var(--year-item-color-1A);
-}
-
-.yearItemMonth2, .yearItemMonth5, .yearItemMonth8, .yearItemMonth11 {
-    border-color:var(--year-item-color-2A);
-}
-
-.yearItemMonth0:hover, .yearItemMonth1:hover, .yearItemMonth2:hover, .yearItemMonth3:hover,
-.yearItemMonth4:hover, .yearItemMonth5:hover, .yearItemMonth6:hover, .yearItemMonth7:hover, 
-.yearItemMonth8:hover, .yearItemMonth9:hover, .yearItemMonth10:hover, .yearItemMonth11:hover {
-    border-width: 3px;
+.yearItem:hover {
+    transform: scale(1.05);
 }
