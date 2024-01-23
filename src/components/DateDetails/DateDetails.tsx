@@ -19,7 +19,7 @@ function DateDetails(props : any) {
 
   return (
     <div id="detailsSection">
-      <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></DateDetailsHeader>
+      <DateDetailsHeader favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts} toggleDarkMode={props.toggleDarkMode}></DateDetailsHeader>
       <DateTimeDisplay></DateTimeDisplay>
       <FactDisplay favoriteFacts={favoriteFacts} setFavoriteFacts={setFavoriteFacts}></FactDisplay>
       <NotesView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}></NotesView>

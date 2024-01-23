@@ -4,6 +4,8 @@ import TimeScaleSelector from './TimeScaleSelector/TimeScaleSelector';
 import YearView from './YearView/YearView';
 import MonthView from './MonthsView/MonthView';
 import WeekView from './WeekView/WeekView';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/system/Box';
 
 export enum TimeScale {
   Year,
@@ -18,6 +20,8 @@ const getInitWeekStartDate = () => {
 }
 
 function Calendar(props: any) {
+  const theme = useTheme();
+  
   const [timeScale, setTimeScale] = useState(TimeScale.Year);
   const [curWeekStartDate, setCurWeekStartDate] = useState(getInitWeekStartDate())
   const [curMonth, setCurMonth] = useState(new Date().getMonth());
@@ -56,7 +60,7 @@ function Calendar(props: any) {
   }
 
   return (
-    <div id="calendarSection">
+    <Box id="calendarSection" sx={{backgroundColor: theme.palette.primary.main}}>
       <TimeScaleSelector curTimeScale={timeScale} onTimeScaleChange={handleTimeScaleChange}></TimeScaleSelector>
         {timeScale === TimeScale.Year && 
           <YearView notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
@@ -73,7 +77,7 @@ function Calendar(props: any) {
             handlePreviousWeek={handlePreviousWeek} 
             handleNextWeek={handleNextWeek}
             notes={props.notes} saveNewNote={props.saveNewNote} deleteNote={props.deleteNote}/>}
-    </div>
+    </Box>
   );
 }
 

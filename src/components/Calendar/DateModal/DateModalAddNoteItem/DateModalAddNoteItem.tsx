@@ -50,9 +50,11 @@ function DateModalAddNoteItem(props: any) {
   return (
     <div id="dateModalAddNoteItem">
       <NoteTypeTooltip selectedNoteType={addNoteType} onSelectionChange={handleAddNoteTypeChange}>
-        {addNoteType === NoteType.Misc && <NotesIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: lightBlue[500], "&:hover": {color: "white"}}}/>}
-        {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: green[500], "&:hover": {color: "white"}}}/>}
-        {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: pink[500], "&:hover": {color: "white"}}}/>}
+        <div>
+          {addNoteType === NoteType.Misc && <NotesIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: lightBlue[500], "&:hover": {color: "white"}}}/>}
+          {addNoteType === NoteType.Reminder && <NotificationsActiveIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: green[500], "&:hover": {color: "white"}}}/>}
+          {addNoteType === NoteType.Birthday && <CakeIcon className="notesTypeIcon selectable" sx={{fontSize: 24, color: pink[500], "&:hover": {color: "white"}}}/>}
+        </div>
       </NoteTypeTooltip>
       <textarea 
         id="addNoteTextArea" 

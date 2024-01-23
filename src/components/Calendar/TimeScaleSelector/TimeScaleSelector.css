@@ -7,15 +7,12 @@
 
 #timeSelectorButtonsContainer {
     --border-width: 2px;
-    --selector-color: white;
+    --border-radius: 8px;
 
     min-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--border-width) solid var(--selector-color);
-    border-radius: 5px;
-    background: rgb(40, 40, 40);
 }
 
 #timeSelectorButtonsContainer > * {
@@ -23,16 +20,33 @@
 }
 
 .timeSelectorButton {
-    background-color: transparent;
-    border-width: 0;
-    padding-top: 3px;
-    color: var(--selector-color);
-    transition-duration: 200ms;
+    height: 32px;
+}
+
+.timeSelectorButton:first-child {
+    border-style: solid;
+    border-width: var(--border-width);
+    border-right: 0;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .timeSelectorButton:nth-child(2) {
-    border-left: var(--border-width) solid var(--selector-color);
-    border-right: var(--border-width) solid var(--selector-color);
+    border-style: solid;
+    border-width: var(--border-width);
+    border-radius: 0;
+}
+
+.timeSelectorButton:last-child {
+    border-style: solid;
+    border-width: var(--border-width);
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
 }
 
 .timeSelectorButton:hover {
@@ -40,6 +54,5 @@
 }
 
 .selectedTimeScale {
-    background-color: rgba(0, 0, 0, 0.5) !important;
     font-weight: bold;
 }

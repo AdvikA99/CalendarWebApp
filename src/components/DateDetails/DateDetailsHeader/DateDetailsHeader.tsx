@@ -18,6 +18,7 @@ function DateDetailsHeader(props: any) {
         id="favoriteFactsModalButton" 
         sx={{fontSize: 32, color: amber[500], "&:hover": {color: "white"}}} 
         onClick={handleOpen}/>
+      <button onClick={props.toggleDarkMode}>Dark Mode</button>
       <Modal
         open={openFavoriteFactsModal}
         onClose={handleClose}>
