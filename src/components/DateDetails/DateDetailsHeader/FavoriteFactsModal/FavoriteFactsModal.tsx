@@ -55,7 +55,7 @@ function FavoriteFactsModal(props: any) {
 
   return (
     <Box id="favoriteFactsModal" sx={{color: theme.palette.primary.contrastText, backgroundColor: theme.palette.primary.light}}>
-      <div id="favoriteFactsModalHeader">
+      <div id="favoriteFactsModalHeaderRow">
         <StarRateRoundedIcon 
           id="favoriteFactsModalIcon" 
           sx={{fontSize: 32, color: amber[500]}}/>

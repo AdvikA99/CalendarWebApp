@@ -22,8 +22,7 @@
   display: none;
 }
 
-
-#favoriteFactsModalHeader {
+#favoriteFactsModalHeaderRow {
     display: flex;
     align-items: center;
 }
@@ -33,10 +32,10 @@
 }
 
 #favoriteFactsModalTitle {
-    font-size: 2em;
     font-weight: bold;
-    font-variant: small-caps;
     color: rgb(100, 180, 255);
+    font-family: "BebasNeue";
+    font-size: 2em;
 }
 
 #favoriteFactsList {
@@ -47,14 +46,16 @@
     font-size: 1.2em;
     color: rgb(100, 180, 255);
     font-weight: bold;
-    font-variant: small-caps;
+    font-family: "BebasNeue";
+    font-size: 1.8em;
 }
 
 .favoriteFactModalSubheader {
     font-size: 1em;
     font-weight: bold;
     margin-top: 8px;
-    font-variant: small-caps;
+    font-family: "BebasNeue";
+    font-size: 1.2em;
 }
 
 .favoriteFactModalMonthGroup {
