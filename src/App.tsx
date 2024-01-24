@@ -82,9 +82,9 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        light: "#181818",
-        main: "#0f0f0f",
-        dark: "#000000",
+        light: "#222222",
+        main: "#181818",
+        dark: "#0a0a0a",
         contrastText: "#f0f0f0"
       },
       secondary: {
@@ -107,8 +107,8 @@ function App() {
   const lightTheme = createTheme({
     palette: {
       primary: {
-        light: "#ffe0b0",
-        main: "#eccca2",
+        light: "#ffeaca",
+        main: "#efdfbf",
         dark: "#cfaf8f",
         contrastText: "#4f4f4f"
       },

@@ -18,9 +18,10 @@
 
 
 .notesHeader {
-    font-size: 1.2em;
     margin-top: 4px;
     margin-bottom: 4px;
+    font-family: "BebasNeue";
+    font-size: 1.6em;
 }
 
 .notesHeader:last-child {

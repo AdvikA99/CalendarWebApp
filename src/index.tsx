@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import "./fonts/ZyzolShadow.otf";
+import "./fonts/BebasNeue-Regular.otf";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

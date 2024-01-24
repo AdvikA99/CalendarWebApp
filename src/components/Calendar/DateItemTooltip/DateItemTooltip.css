@@ -45,6 +45,8 @@
 #dateItemTooltipHeader {
     font-weight: bold;
     text-align: center;
+    font-family: "BebasNeue";
+    font-size: 1.2em;
 }
 
 #dateItemTooltipAdditionalNotesMessage {

@@ -64,7 +64,7 @@ function NoteItem(props : any) {
             </div>
           </NoteTypeTooltip>
           <textarea 
-            id="addNoteTextArea" 
+            className="addNoteTextArea" 
             rows={1}
             onChange={handleChange}
             placeholder="Add a new Note"

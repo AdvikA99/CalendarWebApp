@@ -3,16 +3,6 @@
     margin-top: 16px;
 }
 
-.notesTypeIconDiv {
-    padding: 4px;
-    margin-right: 8px;
-    border-radius: 50%;
-    border: 2px solid rgb(120, 120, 120);
-    display: flex;
-    justify-content: center;
-    max-height: 32px;
-}
-
 .selectable {
     cursor: pointer;
     outline: 2px solid currentColor;
@@ -21,11 +11,10 @@
 }
 
 .notesTypeIcon {
-    margin-right: 8px;
     padding: 4px;
 }
 
-#addNoteTextArea {
+.addNoteTextArea {
     flex: 1;
     resize: none;
     background: transparent;
@@ -33,12 +22,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     padding-bottom: 2px;
-    font-size: 1.2em;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    margin-left: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
 }
 
-#addNoteTextArea:focus {
+.addNoteTextArea:focus {
     outline: none;
     border-color: rgba(255, 255, 255, 0.6);
     background-color: rgba(255, 255, 255, 0.02);
@@ -46,6 +37,7 @@
 
 .noteText {
     flex: 1;
+    margin-left: 8px;
 }
 
 .deleteNoteButton {

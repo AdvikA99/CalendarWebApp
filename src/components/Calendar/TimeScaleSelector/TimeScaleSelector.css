@@ -17,6 +17,9 @@
 
 #timeSelectorButtonsContainer > * {
     flex-basis: 34%;
+    font-family: "BebasNeue";
+    font-size: 1.2em;
+    padding-top: 8px;
 }
 
 .timeSelectorButton {

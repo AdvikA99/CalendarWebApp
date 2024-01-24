@@ -12,9 +12,10 @@
 #currentMonthText {
     min-width: 200px;
     text-align: center;
-    font-size: 1.2em;
-    padding-top:8px;
+    padding-top:12px;
     font-weight: bold;
+    font-family: "BebasNeue";
+    font-size: 1.6em;
 }
 
 .monthSelectorButton {
@@ -33,5 +34,6 @@
 
 .monthRowHeader {
     font-weight: bold;
-    font-variant: small-caps;
+    font-family: "BebasNeue";
+    font-size: 1.4em;
 }

@@ -9,9 +9,16 @@
     margin-right: 40px;
 }
 
-#fact {
+#factDate {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.2em;
+}
+
+#fact {
+    font-size: 1.4em;
     flex: 1;
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 2.3em;
 }
 
 #factRow {

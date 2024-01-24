@@ -17,7 +17,7 @@
 .weekRow {
     display: flex;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-    height: 200px;
+    height: 180px;
 }
 
 .weekRow:last-child {
@@ -27,11 +27,11 @@
 .weekDayHeader {
     writing-mode: vertical-rl;
     text-orientation: upright;
-    font-variant: small-caps;
     font-weight: bold;
     width: 20px;
     text-align: center;
     padding-left: 8px;
     padding-right: 8px;
     border-right: 1px solid rgba(255, 255, 255, 0.5);
+    font-family: "BebasNeue";
 }
